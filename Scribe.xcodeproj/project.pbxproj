@@ -21,7 +21,7 @@
 		DCD128A51495D53F00E75E15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCD128A31495D53F00E75E15 /* InfoPlist.strings */; };
 		DCD128A81495D53F00E75E15 /* ScribeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD128A71495D53F00E75E15 /* ScribeTests.m */; };
 		DCD128B31495D7FB00E75E15 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD128B21495D7FB00E75E15 /* GameViewController.m */; };
-		DCD128B51495DDF400E75E15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DCD128B41495DDF400E75E15 /* README.md */; };
+		DCD128B71495DF7300E75E15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DCD128B61495DF7300E75E15 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,7 @@
 		DCD128A71495D53F00E75E15 /* ScribeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScribeTests.m; sourceTree = "<group>"; };
 		DCD128B11495D7FB00E75E15 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		DCD128B21495D7FB00E75E15 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		DCD128B41495DDF400E75E15 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		DCD128B61495DF7300E75E15 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +86,7 @@
 		DCD1286D1495D53F00E75E15 = {
 			isa = PBXGroup;
 			children = (
+				DCD128B61495DF7300E75E15 /* README.md */,
 				DCD128821495D53F00E75E15 /* Scribe */,
 				DCD128A01495D53F00E75E15 /* ScribeTests */,
 				DCD1287B1495D53F00E75E15 /* Frameworks */,
@@ -119,7 +120,6 @@
 				DCD1288B1495D53F00E75E15 /* SCAppDelegate.h */,
 				DCD1288C1495D53F00E75E15 /* SCAppDelegate.m */,
 				DCD1288E1495D53F00E75E15 /* MainStoryboard.storyboard */,
-				DCD128B41495DDF400E75E15 /* README.md */,
 				DCD128B11495D7FB00E75E15 /* GameViewController.h */,
 				DCD128B21495D7FB00E75E15 /* GameViewController.m */,
 				DCD128911495D53F00E75E15 /* SCViewController.h */,
@@ -231,7 +231,7 @@
 			files = (
 				DCD128871495D53F00E75E15 /* InfoPlist.strings in Resources */,
 				DCD128901495D53F00E75E15 /* MainStoryboard.storyboard in Resources */,
-				DCD128B51495DDF400E75E15 /* README.md in Resources */,
+				DCD128B71495DF7300E75E15 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
