@@ -20,6 +20,7 @@
 		DCD1289D1495D53F00E75E15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD1287E1495D53F00E75E15 /* Foundation.framework */; };
 		DCD128A51495D53F00E75E15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCD128A31495D53F00E75E15 /* InfoPlist.strings */; };
 		DCD128A81495D53F00E75E15 /* ScribeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD128A71495D53F00E75E15 /* ScribeTests.m */; };
+		DCD128B31495D7FB00E75E15 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD128B21495D7FB00E75E15 /* GameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		DCD128A41495D53F00E75E15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DCD128A61495D53F00E75E15 /* ScribeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScribeTests.h; sourceTree = "<group>"; };
 		DCD128A71495D53F00E75E15 /* ScribeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScribeTests.m; sourceTree = "<group>"; };
+		DCD128B11495D7FB00E75E15 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		DCD128B21495D7FB00E75E15 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 				DCD1288B1495D53F00E75E15 /* SCAppDelegate.h */,
 				DCD1288C1495D53F00E75E15 /* SCAppDelegate.m */,
 				DCD1288E1495D53F00E75E15 /* MainStoryboard.storyboard */,
+				DCD128B11495D7FB00E75E15 /* GameViewController.h */,
+				DCD128B21495D7FB00E75E15 /* GameViewController.m */,
 				DCD128911495D53F00E75E15 /* SCViewController.h */,
 				DCD128921495D53F00E75E15 /* SCViewController.m */,
 				DCD128831495D53F00E75E15 /* Supporting Files */,
@@ -260,6 +265,7 @@
 				DCD128891495D53F00E75E15 /* main.m in Sources */,
 				DCD1288D1495D53F00E75E15 /* SCAppDelegate.m in Sources */,
 				DCD128931495D53F00E75E15 /* SCViewController.m in Sources */,
+				DCD128B31495D7FB00E75E15 /* GameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
