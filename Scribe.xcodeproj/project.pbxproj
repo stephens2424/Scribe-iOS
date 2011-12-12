@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DCD1287D1495D53F00E75E15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD1287C1495D53F00E75E15 /* UIKit.framework */; };
+		DCD1287F1495D53F00E75E15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD1287E1495D53F00E75E15 /* Foundation.framework */; };
+		DCD128811495D53F00E75E15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD128801495D53F00E75E15 /* CoreGraphics.framework */; };
+		DCD128871495D53F00E75E15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCD128851495D53F00E75E15 /* InfoPlist.strings */; };
+		DCD128891495D53F00E75E15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD128881495D53F00E75E15 /* main.m */; };
+		DCD1288D1495D53F00E75E15 /* SCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD1288C1495D53F00E75E15 /* SCAppDelegate.m */; };
+		DCD128901495D53F00E75E15 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCD1288E1495D53F00E75E15 /* MainStoryboard.storyboard */; };
+		DCD128931495D53F00E75E15 /* SCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD128921495D53F00E75E15 /* SCViewController.m */; };
+		DCD1289B1495D53F00E75E15 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD1289A1495D53F00E75E15 /* SenTestingKit.framework */; };
+		DCD1289C1495D53F00E75E15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD1287C1495D53F00E75E15 /* UIKit.framework */; };
+		DCD1289D1495D53F00E75E15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD1287E1495D53F00E75E15 /* Foundation.framework */; };
+		DCD128A51495D53F00E75E15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCD128A31495D53F00E75E15 /* InfoPlist.strings */; };
+		DCD128A81495D53F00E75E15 /* ScribeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD128A71495D53F00E75E15 /* ScribeTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DCD1289E1495D53F00E75E15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DCD1286F1495D53F00E75E15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCD128771495D53F00E75E15;
+			remoteInfo = Scribe;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DCD128781495D53F00E75E15 /* Scribe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scribe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCD1287C1495D53F00E75E15 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DCD1287E1495D53F00E75E15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DCD128801495D53F00E75E15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DCD128841495D53F00E75E15 /* Scribe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Scribe-Info.plist"; sourceTree = "<group>"; };
+		DCD128861495D53F00E75E15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DCD128881495D53F00E75E15 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DCD1288A1495D53F00E75E15 /* Scribe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Scribe-Prefix.pch"; sourceTree = "<group>"; };
+		DCD1288B1495D53F00E75E15 /* SCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAppDelegate.h; sourceTree = "<group>"; };
+		DCD1288C1495D53F00E75E15 /* SCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAppDelegate.m; sourceTree = "<group>"; };
+		DCD1288F1495D53F00E75E15 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		DCD128911495D53F00E75E15 /* SCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCViewController.h; sourceTree = "<group>"; };
+		DCD128921495D53F00E75E15 /* SCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCViewController.m; sourceTree = "<group>"; };
+		DCD128991495D53F00E75E15 /* ScribeTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScribeTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCD1289A1495D53F00E75E15 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		DCD128A21495D53F00E75E15 /* ScribeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ScribeTests-Info.plist"; sourceTree = "<group>"; };
+		DCD128A41495D53F00E75E15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DCD128A61495D53F00E75E15 /* ScribeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScribeTests.h; sourceTree = "<group>"; };
+		DCD128A71495D53F00E75E15 /* ScribeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScribeTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DCD128751495D53F00E75E15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCD1287D1495D53F00E75E15 /* UIKit.framework in Frameworks */,
+				DCD1287F1495D53F00E75E15 /* Foundation.framework in Frameworks */,
+				DCD128811495D53F00E75E15 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCD128951495D53F00E75E15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCD1289B1495D53F00E75E15 /* SenTestingKit.framework in Frameworks */,
+				DCD1289C1495D53F00E75E15 /* UIKit.framework in Frameworks */,
+				DCD1289D1495D53F00E75E15 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DCD1286D1495D53F00E75E15 = {
+			isa = PBXGroup;
+			children = (
+				DCD128821495D53F00E75E15 /* Scribe */,
+				DCD128A01495D53F00E75E15 /* ScribeTests */,
+				DCD1287B1495D53F00E75E15 /* Frameworks */,
+				DCD128791495D53F00E75E15 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DCD128791495D53F00E75E15 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DCD128781495D53F00E75E15 /* Scribe.app */,
+				DCD128991495D53F00E75E15 /* ScribeTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DCD1287B1495D53F00E75E15 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCD1287C1495D53F00E75E15 /* UIKit.framework */,
+				DCD1287E1495D53F00E75E15 /* Foundation.framework */,
+				DCD128801495D53F00E75E15 /* CoreGraphics.framework */,
+				DCD1289A1495D53F00E75E15 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DCD128821495D53F00E75E15 /* Scribe */ = {
+			isa = PBXGroup;
+			children = (
+				DCD1288B1495D53F00E75E15 /* SCAppDelegate.h */,
+				DCD1288C1495D53F00E75E15 /* SCAppDelegate.m */,
+				DCD1288E1495D53F00E75E15 /* MainStoryboard.storyboard */,
+				DCD128911495D53F00E75E15 /* SCViewController.h */,
+				DCD128921495D53F00E75E15 /* SCViewController.m */,
+				DCD128831495D53F00E75E15 /* Supporting Files */,
+			);
+			path = Scribe;
+			sourceTree = "<group>";
+		};
+		DCD128831495D53F00E75E15 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DCD128841495D53F00E75E15 /* Scribe-Info.plist */,
+				DCD128851495D53F00E75E15 /* InfoPlist.strings */,
+				DCD128881495D53F00E75E15 /* main.m */,
+				DCD1288A1495D53F00E75E15 /* Scribe-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DCD128A01495D53F00E75E15 /* ScribeTests */ = {
+			isa = PBXGroup;
+			children = (
+				DCD128A61495D53F00E75E15 /* ScribeTests.h */,
+				DCD128A71495D53F00E75E15 /* ScribeTests.m */,
+				DCD128A11495D53F00E75E15 /* Supporting Files */,
+			);
+			path = ScribeTests;
+			sourceTree = "<group>";
+		};
+		DCD128A11495D53F00E75E15 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DCD128A21495D53F00E75E15 /* ScribeTests-Info.plist */,
+				DCD128A31495D53F00E75E15 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DCD128771495D53F00E75E15 /* Scribe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCD128AB1495D53F00E75E15 /* Build configuration list for PBXNativeTarget "Scribe" */;
+			buildPhases = (
+				DCD128741495D53F00E75E15 /* Sources */,
+				DCD128751495D53F00E75E15 /* Frameworks */,
+				DCD128761495D53F00E75E15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Scribe;
+			productName = Scribe;
+			productReference = DCD128781495D53F00E75E15 /* Scribe.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DCD128981495D53F00E75E15 /* ScribeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCD128AE1495D53F00E75E15 /* Build configuration list for PBXNativeTarget "ScribeTests" */;
+			buildPhases = (
+				DCD128941495D53F00E75E15 /* Sources */,
+				DCD128951495D53F00E75E15 /* Frameworks */,
+				DCD128961495D53F00E75E15 /* Resources */,
+				DCD128971495D53F00E75E15 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DCD1289F1495D53F00E75E15 /* PBXTargetDependency */,
+			);
+			name = ScribeTests;
+			productName = ScribeTests;
+			productReference = DCD128991495D53F00E75E15 /* ScribeTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DCD1286F1495D53F00E75E15 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = DCD128721495D53F00E75E15 /* Build configuration list for PBXProject "Scribe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DCD1286D1495D53F00E75E15;
+			productRefGroup = DCD128791495D53F00E75E15 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCD128771495D53F00E75E15 /* Scribe */,
+				DCD128981495D53F00E75E15 /* ScribeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DCD128761495D53F00E75E15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCD128871495D53F00E75E15 /* InfoPlist.strings in Resources */,
+				DCD128901495D53F00E75E15 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCD128961495D53F00E75E15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCD128A51495D53F00E75E15 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DCD128971495D53F00E75E15 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DCD128741495D53F00E75E15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCD128891495D53F00E75E15 /* main.m in Sources */,
+				DCD1288D1495D53F00E75E15 /* SCAppDelegate.m in Sources */,
+				DCD128931495D53F00E75E15 /* SCViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCD128941495D53F00E75E15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCD128A81495D53F00E75E15 /* ScribeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DCD1289F1495D53F00E75E15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCD128771495D53F00E75E15 /* Scribe */;
+			targetProxy = DCD1289E1495D53F00E75E15 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DCD128851495D53F00E75E15 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCD128861495D53F00E75E15 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DCD1288E1495D53F00E75E15 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCD1288F1495D53F00E75E15 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		DCD128A31495D53F00E75E15 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCD128A41495D53F00E75E15 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DCD128A91495D53F00E75E15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DCD128AA1495D53F00E75E15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DCD128AC1495D53F00E75E15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Scribe/Scribe-Prefix.pch";
+				INFOPLIST_FILE = "Scribe/Scribe-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DCD128AD1495D53F00E75E15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Scribe/Scribe-Prefix.pch";
+				INFOPLIST_FILE = "Scribe/Scribe-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		DCD128AF1495D53F00E75E15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Scribe.app/Scribe";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Scribe/Scribe-Prefix.pch";
+				INFOPLIST_FILE = "ScribeTests/ScribeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		DCD128B01495D53F00E75E15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Scribe.app/Scribe";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Scribe/Scribe-Prefix.pch";
+				INFOPLIST_FILE = "ScribeTests/ScribeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DCD128721495D53F00E75E15 /* Build configuration list for PBXProject "Scribe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCD128A91495D53F00E75E15 /* Debug */,
+				DCD128AA1495D53F00E75E15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCD128AB1495D53F00E75E15 /* Build configuration list for PBXNativeTarget "Scribe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCD128AC1495D53F00E75E15 /* Debug */,
+				DCD128AD1495D53F00E75E15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DCD128AE1495D53F00E75E15 /* Build configuration list for PBXNativeTarget "ScribeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCD128AF1495D53F00E75E15 /* Debug */,
+				DCD128B01495D53F00E75E15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DCD1286F1495D53F00E75E15 /* Project object */;
+}
