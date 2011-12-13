@@ -11,6 +11,10 @@
 
 @interface SCGameBoardView : UIView {
     CGPathRef roundedRect;
+    CGAffineTransform * _transformToSmall;
 }
+
+- (CGPathRef)transformedRoundedRect:(CGAffineTransform *)m;
+- (CGAffineTransform *)transformToSmall;
 
 @end

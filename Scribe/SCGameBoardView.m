@@ -36,11 +36,28 @@
     return roundedRect;
 }
 
+- (CGAffineTransform *)transformToSmall {
+    if (!_transformToSmall) {
+        _transformToSmall = malloc(sizeof(CGAffineTransform));
+        * _transformToSmall = CGAffineTransformMakeScale(2, 2);
+    }
+    return _transformToSmall;
+}
+
+- (CGPathRef)transformedRoundedRect:(CGAffineTransform *)m {
+    CGMutablePathRef _roundedRect = CGPathCreateMutable();
+    CGPathAddPath(_roundedRect, m, [self roundedRect]);
+    CGPathCloseSubpath(_roundedRect);
+    CGPathRef transformed = CGPathCreateCopy(_roundedRect);
+    free(_roundedRect);
+    return transformed;
+}
+
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextBeginPath(context);
-    CGContextAddPath(context, [self roundedRect]);
+    CGContextAddPath(context, [self transformedRoundedRect:[self transformToSmall]]);
     CGContextFillPath(context);
 }
 
