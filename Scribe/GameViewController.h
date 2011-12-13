@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SCGameBoardView.h"
 
-@interface GameViewController : UIViewController
+@interface GameViewController : UIViewController {
+    IBOutlet SCGameBoardView * gameBoardView;
+}
 
 @end
