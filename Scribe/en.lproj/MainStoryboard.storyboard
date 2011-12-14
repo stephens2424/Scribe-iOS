@@ -72,18 +72,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="axZ-Od-Tga" customClass="SCGameBoardView">
-                                <rect key="frame" x="20" y="116" width="280" height="280"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Scribe" id="NQe-Qy-CNn"/>
-                    <connections>
-                        <outlet property="gameBoardView" destination="axZ-Od-Tga" id="cxm-jW-0CE"/>
-                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1077" y="73"/>

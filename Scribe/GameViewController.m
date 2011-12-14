@@ -7,6 +7,7 @@
 //
 
 #import "GameViewController.h"
+#import "SCGameBoardView.h"
 
 @implementation GameViewController
 
@@ -36,13 +37,13 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    [self.view addSubview:[[SCGameBoardView alloc] initWithFrame:CGRectMake(20, 116, 260, 260)]];
     [super viewDidLoad];
 }
-*/
 
 - (void)viewDidUnload
 {

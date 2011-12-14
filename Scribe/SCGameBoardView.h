@@ -8,19 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import "SCScribeBoard.h"
+#import "SCGridView.h"
 
-@interface SCGameBoardView : UIView {
-    CGPathRef roundedRect;
-    CGAffineTransform * _transformToSmall;
-    CGColorRef _red;
-    CGColorRef _blue;
-    CGColorSpaceRef _colorSpace;
+@interface SCGameBoardView : SCGridView {
+    SCScribeBoard * scribeBoard;
 }
-
-- (CGPathRef)transformedRoundedRect:(CGAffineTransform *)m;
-- (CGAffineTransform *)transformToSmall;
-- (CGColorRef)red;
-- (CGColorRef)blue;
-- (CGColorSpaceRef)colorSpace;
 
 @end
