@@ -12,8 +12,8 @@
 
 void gridForFrame(CGRect grid[], CGRect frame, NSUInteger padding,NSUInteger gridSize) {
     
-    CGFloat cellWidth = frame.size.width/3;
-    CGFloat cellHeight = frame.size.height/3;
+    CGFloat cellWidth = frame.size.width/3 - padding;
+    CGFloat cellHeight = frame.size.height/3 - padding;
     
     int i = 0;
     for (int x = 0; x < gridSize; x++) {
