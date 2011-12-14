@@ -56,6 +56,7 @@
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetRGBFillColor(context, 1.0, 0, 0, 1.0);
     CGContextBeginPath(context);
     CGContextAddPath(context, [self transformedRoundedRect:[self transformToSmall]]);
     CGContextFillPath(context);
