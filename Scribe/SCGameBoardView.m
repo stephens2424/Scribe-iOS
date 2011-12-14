@@ -81,6 +81,14 @@
     CGContextBeginPath(context);
     CGContextAddPath(context, [self transformedRoundedRect:[self transformToSmall]]);
     CGContextFillPath(context);
+
+    CGContextBeginPath(context);
+    CGContextSetFillColorWithColor(context, [self red]);
+    CGAffineTransform * identity = malloc(sizeof(CGAffineTransform));
+    * identity = CGAffineTransformIdentity;
+    CGContextAddPath(context, [self transformedRoundedRect:identity]);
+    free(identity);
+    CGContextFillPath(context);
 }
 
 
