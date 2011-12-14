@@ -53,10 +53,31 @@
     return transformed;
 }
 
+- (CGColorRef)red {
+    if (!_red) {
+        float red[4] = {1.0, 0, 0, 1.0};
+        _red = CGColorCreate([self colorSpace], red);
+    }
+    return _red;
+}
+- (CGColorRef)blue {
+    if (!_blue) {
+        float blue[4] = {0.0, 0.0, 1.0, 1.0};
+        _blue = CGColorCreate([self colorSpace], blue);
+    }
+    return _blue;
+}
+- (CGColorSpaceRef)colorSpace {
+    if (!_colorSpace) {
+        _colorSpace = CGColorSpaceCreateDeviceRGB();
+    }
+    return _colorSpace;
+}
+
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetRGBFillColor(context, 1.0, 0, 0, 1.0);
+    CGContextSetFillColorWithColor(context, [self blue]);
     CGContextBeginPath(context);
     CGContextAddPath(context, [self transformedRoundedRect:[self transformToSmall]]);
     CGContextFillPath(context);
