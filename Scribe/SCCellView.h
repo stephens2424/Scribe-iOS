@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SCCellView : UIView {
-    CGPathRef roundedRect;
     CGAffineTransform * _transformToSmall;
     CGColorRef _red;
     CGColorRef _blue;

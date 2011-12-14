@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XY.h"
 
 extern const NSUInteger MINI_GRID_SIZE;
 
-@interface SCMiniGrid : NSObject
+@interface SCMiniGrid : NSObject {
+    XY * positionInGrid;
+}
+
+@property (readonly) XY * positionInGrid;
 
 @end

@@ -12,6 +12,11 @@
 
 @interface SCMiniGridView : SCGridView {
     SCMiniGrid * miniGrid;
+    CGRect originalFrame;
+    CGRect expandedFrame;
+    UITapGestureRecognizer * gestureRecognizer;
 }
+
+@property (nonatomic,assign) CGRect expandedFrame;
 
 @end

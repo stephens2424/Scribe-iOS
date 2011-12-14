@@ -12,4 +12,6 @@ const NSUInteger MINI_GRID_SIZE = 3;
 
 @implementation SCMiniGrid
 
+@synthesize positionInGrid;
+
 @end

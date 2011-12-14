@@ -21,7 +21,9 @@ const NSUInteger GRID_PADDING = 4;
         gridForFrame(grid, frame, GRID_PADDING,GRID_SIZE );
         int gridLength = sizeof(grid)/sizeof(grid[0]);
         for (int i = 0; i < gridLength; i++) {
-            [self addSubview:[[SCMiniGridView alloc] initWithFrame:grid[i]]];
+            SCMiniGridView * miniGrid = [[SCMiniGridView alloc] initWithFrame:grid[i]];
+            [miniGrid setExpandedFrame:self.bounds];
+            [self addSubview:miniGrid];
         }
     }
     return self;

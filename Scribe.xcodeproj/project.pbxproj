@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC6CEA751499147400F28D3B /* XY.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6CEA741499147400F28D3B /* XY.m */; };
 		DCC8EFED149883BB0007ABB6 /* SCCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC8EFEC149883BB0007ABB6 /* SCCellView.m */; };
 		DCC8EFF4149888760007ABB6 /* SCMiniGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC8EFF3149888760007ABB6 /* SCMiniGridView.m */; };
 		DCC8EFF8149888D20007ABB6 /* SCScribeBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC8EFF7149888D20007ABB6 /* SCScribeBoard.m */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC6CEA731499147400F28D3B /* XY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XY.h; sourceTree = "<group>"; };
+		DC6CEA741499147400F28D3B /* XY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XY.m; sourceTree = "<group>"; };
 		DCC8EFEB149883BB0007ABB6 /* SCCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCellView.h; sourceTree = "<group>"; };
 		DCC8EFEC149883BB0007ABB6 /* SCCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCellView.m; sourceTree = "<group>"; };
 		DCC8EFF2149888760007ABB6 /* SCMiniGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMiniGridView.h; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 		DCD128821495D53F00E75E15 /* Scribe */ = {
 			isa = PBXGroup;
 			children = (
+				DC6CEA731499147400F28D3B /* XY.h */,
+				DC6CEA741499147400F28D3B /* XY.m */,
 				DCC8EFF5149888BE0007ABB6 /* Model */,
 				DCD1288B1495D53F00E75E15 /* SCAppDelegate.h */,
 				DCD1288C1495D53F00E75E15 /* SCAppDelegate.m */,
@@ -314,6 +319,7 @@
 				DCC8EFF8149888D20007ABB6 /* SCScribeBoard.m in Sources */,
 				DCC8EFFB14988C110007ABB6 /* SCMiniGrid.m in Sources */,
 				DCC8F0041498A3E30007ABB6 /* SCGridView.m in Sources */,
+				DC6CEA751499147400F28D3B /* XY.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

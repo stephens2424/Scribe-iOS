@@ -14,27 +14,28 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        self.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin |
+        UIViewAutoresizingFlexibleWidth |
+        UIViewAutoresizingFlexibleRightMargin |
+        UIViewAutoresizingFlexibleTopMargin |
+        UIViewAutoresizingFlexibleHeight |
+        UIViewAutoresizingFlexibleBottomMargin;
     }
     return self;
 }
 
-- (CGPathRef)roundedRect:(CGRect)frame radius:(CGFloat)radius {
-    if (!roundedRect) {
-        CGMutablePathRef _roundedRect = CGPathCreateMutable();
-        CGPathMoveToPoint(_roundedRect, NULL, frame.origin.x + radius, frame.origin.y);
-        CGPathAddArcToPoint(_roundedRect, NULL, frame.origin.x, frame.origin.y, frame.origin.x, frame.origin.y + radius, radius);
-        CGPathAddLineToPoint(_roundedRect, NULL, frame.origin.x,frame.size.height - radius);
-        CGPathAddArcToPoint(_roundedRect, NULL, frame.origin.x, frame.size.height, frame.origin.x + radius, frame.size.height, radius);
-        CGPathAddLineToPoint(_roundedRect, NULL, frame.size.width - radius, frame.size.height);
-        CGPathAddArcToPoint(_roundedRect, NULL, frame.size.width, frame.size.height, frame.size.width, frame.size.height - radius, radius);
-        CGPathAddLineToPoint(_roundedRect, NULL, frame.size.width, frame.origin.y + radius);
-        CGPathAddArcToPoint(_roundedRect, NULL, frame.size.width, frame.origin.y, frame.size.width - radius, frame.origin.y, radius);
-        CGPathCloseSubpath(_roundedRect);
-        roundedRect = CGPathCreateCopy(_roundedRect);
-        free(_roundedRect);
-    }
-    return roundedRect;
+- (CGPathRef)roundedRect:(CGRect)bounds radius:(CGFloat)radius {
+    CGMutablePathRef _roundedRect = CGPathCreateMutable();
+    CGPathMoveToPoint(_roundedRect, NULL, bounds.origin.x + radius, bounds.origin.y);
+    CGPathAddArcToPoint(_roundedRect, NULL, bounds.origin.x, bounds.origin.y, bounds.origin.x, bounds.origin.y + radius, radius);
+    CGPathAddLineToPoint(_roundedRect, NULL, bounds.origin.x,bounds.size.height - radius);
+    CGPathAddArcToPoint(_roundedRect, NULL, bounds.origin.x, bounds.size.height, bounds.origin.x + radius, bounds.size.height, radius);
+    CGPathAddLineToPoint(_roundedRect, NULL, bounds.size.width - radius, bounds.size.height);
+    CGPathAddArcToPoint(_roundedRect, NULL, bounds.size.width, bounds.size.height, bounds.size.width, bounds.size.height - radius, radius);
+    CGPathAddLineToPoint(_roundedRect, NULL, bounds.size.width, bounds.origin.y + radius);
+    CGPathAddArcToPoint(_roundedRect, NULL, bounds.size.width, bounds.origin.y, bounds.size.width - radius, bounds.origin.y, radius);
+    CGPathCloseSubpath(_roundedRect);
+    return _roundedRect;
 }
 
 - (CGAffineTransform *)transformToSmall {
@@ -75,7 +76,8 @@
     
     CGContextSetFillColorWithColor(context, [self blue]);
     CGContextBeginPath(context);
-    CGContextAddPath(context, [self roundedRect:rect radius:10]);
+    CGPathRef roundedRect = [self roundedRect:rect radius:10];
+    CGContextAddPath(context, roundedRect);
     CGContextFillPath(context);
 }
 
