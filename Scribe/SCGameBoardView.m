@@ -29,6 +29,11 @@ const NSUInteger GRID_PADDING = 4;
     return self;
 }
 
+- (void)resetBoard {
+    for (SCMiniGridView * mg in self.subviews) {
+        [mg reduceFrame];
+    }
+}
 
 /*
 - (void)drawRect:(CGRect)rect

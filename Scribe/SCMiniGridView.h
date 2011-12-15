@@ -19,4 +19,6 @@
 
 @property (nonatomic,assign) CGRect expandedFrame;
 
+- (void)reduceFrame;
+
 @end

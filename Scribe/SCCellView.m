@@ -20,7 +20,9 @@
         UIViewAutoresizingFlexibleTopMargin |
         UIViewAutoresizingFlexibleHeight |
         UIViewAutoresizingFlexibleBottomMargin;
+        self.contentMode = UIViewContentModeRedraw;
     }
+    self.backgroundColor = [UIColor clearColor];
     return self;
 }
 
@@ -76,7 +78,7 @@
     
     CGContextSetFillColorWithColor(context, [self blue]);
     CGContextBeginPath(context);
-    CGPathRef roundedRect = [self roundedRect:rect radius:10];
+    CGPathRef roundedRect = [self roundedRect:rect radius:self.bounds.size.height/5];
     CGContextAddPath(context, roundedRect);
     CGContextFillPath(context);
 }

@@ -41,7 +41,9 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
-    [self.view addSubview:[[SCGameBoardView alloc] initWithFrame:CGRectMake(20, 116, 280, 280)]];
+    SCGameBoardView * gameBoard = [[SCGameBoardView alloc] initWithFrame:CGRectMake(20, 116, 280, 280)];
+    [self.view addSubview:gameBoard];
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:gameBoard action:@selector(resetBoard)]];
     [super viewDidLoad];
 }
 

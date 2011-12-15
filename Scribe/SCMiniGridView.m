@@ -44,20 +44,19 @@ const NSUInteger MINI_GRID_PADDING = 2;
 }
 
 - (void)reduceFrame {
-    self.frame = originalFrame;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.frame = originalFrame;
+        self.superview.superview.backgroundColor = [UIColor whiteColor];
+    }];
 }
 
 - (void)expandToFrame {
     [self.superview bringSubviewToFront:self];
-    self.frame = expandedFrame;
-    CGRect grid[9];
-    gridForFrame(grid, self.bounds, MINI_GRID_PADDING, MINI_GRID_SIZE);
-    int i = 0;
-    for (UIView * subview in self.subviews) {
-        subview.frame = grid[i];
-        i++;
-        [subview setNeedsDisplay];
-    }
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.superview.superview.backgroundColor = [UIColor grayColor];
+        self.frame = expandedFrame;
+    }];
 }
 
 /*
