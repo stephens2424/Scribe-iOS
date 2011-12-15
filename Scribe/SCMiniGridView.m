@@ -47,6 +47,10 @@ const NSUInteger MINI_GRID_PADDING = 2;
     [UIView animateWithDuration:0.5 animations:^{
         self.frame = originalFrame;
         self.superview.superview.backgroundColor = [UIColor whiteColor];
+        self.superview.superview.alpha = 1.0;
+        for (UIView * subview in self.superview.subviews) {
+            subview.alpha = 1.0;
+        }
     }];
 }
 
@@ -56,6 +60,13 @@ const NSUInteger MINI_GRID_PADDING = 2;
     [UIView animateWithDuration:0.5 animations:^{
         self.superview.superview.backgroundColor = [UIColor grayColor];
         self.frame = expandedFrame;
+
+        for (UIView * subview in self.superview.subviews) {
+            if (subview != self) {
+                subview.alpha = 0;
+            }
+        }
+
     }];
 }
 
