@@ -10,6 +10,8 @@
 
 @implementation SCCellView
 
+@synthesize color;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -21,6 +23,8 @@
         UIViewAutoresizingFlexibleHeight |
         UIViewAutoresizingFlexibleBottomMargin;
         self.contentMode = UIViewContentModeRedraw;
+        float _color[4] = {0.8, 0.8, 0.8, 0.8};
+        self.color = CGColorCreate([self colorSpace], _color);
     }
     self.backgroundColor = [UIColor clearColor];
     return self;
@@ -76,11 +80,20 @@
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGContextSetFillColorWithColor(context, [self blue]);
+    CGContextSetFillColorWithColor(context, color);
     CGContextBeginPath(context);
     CGPathRef roundedRect = [self roundedRect:rect radius:self.bounds.size.height/5];
     CGContextAddPath(context, roundedRect);
     CGContextFillPath(context);
+    
+    CGContextBeginPath(context);
+    CGContextSetLineJoin(context, kCGLineJoinRound);
+    CGContextSetLineCap(context, kCGLineCapRound);
+    CGContextAddPath(context, roundedRect);
+    CGContextSetRGBStrokeColor(context, .1, .1, .1, .4);
+    CGContextSetLineWidth(context, 1);
+    CGContextStrokePath(context);
+    
 }
 
 

@@ -12,8 +12,11 @@
     CGAffineTransform * _transformToSmall;
     CGColorRef _red;
     CGColorRef _blue;
+    CGColorRef color;
     CGColorSpaceRef _colorSpace;
 }
+
+@property (assign) CGColorRef color;
 
 - (CGAffineTransform *)transformToSmall;
 - (CGColorRef)red;

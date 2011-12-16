@@ -58,7 +58,7 @@ const NSUInteger MINI_GRID_PADDING = 2;
     [self.superview bringSubviewToFront:self];
     
     [UIView animateWithDuration:0.5 animations:^{
-        self.superview.superview.backgroundColor = [UIColor grayColor];
+        self.superview.superview.backgroundColor = [UIColor colorWithRed:.5 green:.5 blue:.5 alpha:.5];
         self.frame = expandedFrame;
 
         for (UIView * subview in self.superview.subviews) {
