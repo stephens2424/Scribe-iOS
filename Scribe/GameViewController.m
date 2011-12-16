@@ -8,6 +8,7 @@
 
 #import "GameViewController.h"
 #import "SCGameBoardView.h"
+#import "SCMiniGridView.h"
 
 @implementation GameViewController
 
@@ -42,6 +43,9 @@
 - (void)viewDidLoad
 {
     SCGameBoardView * gameBoard = [[SCGameBoardView alloc] initWithFrame:CGRectMake(20, 116, 280, 280)];
+    for (SCMiniGridView * view in gameBoard.subviews) {
+        
+    }
     [self.view addSubview:gameBoard];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:gameBoard action:@selector(resetBoard)]];
     [super viewDidLoad];

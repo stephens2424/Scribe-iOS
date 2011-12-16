@@ -14,4 +14,12 @@ const NSUInteger MINI_GRID_SIZE = 3;
 
 @synthesize positionInGrid;
 
+- (id)initWithPosition:(XY *)position {
+    self = [super init];
+    if (self) {
+        positionInGrid = position;
+    }
+    return self;
+}
+
 @end

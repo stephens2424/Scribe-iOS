@@ -7,10 +7,13 @@
 //
 
 #import "SCCellView.h"
+#import "XY.h"
 
 @implementation SCCellView
 
 @synthesize color;
+@synthesize positionInMiniGrid = xy;
+@synthesize listenForTaps = _listenForTaps;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -26,8 +29,23 @@
         float _color[4] = {0.8, 0.8, 0.8, 0.8};
         self.color = CGColorCreate([self colorSpace], _color);
     }
+    recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(notifyOnTap)];
+    self.listenForTaps = NO;
     self.backgroundColor = [UIColor clearColor];
     return self;
+}
+
+- (void)setListenForTaps:(BOOL)listenForTaps {
+    if (listenForTaps) {
+        [self addGestureRecognizer:recognizer];
+    } else {
+        [self removeGestureRecognizer:recognizer];
+    }
+}
+
+- (void)notifyOnTap {
+    [[NSNotificationCenter defaultCenter] postNotificationName:SCCellTappedNotification object:self];
+    NSLog(@"Tap at %@",xy);
 }
 
 - (CGPathRef)roundedRect:(CGRect)bounds radius:(CGFloat)radius {

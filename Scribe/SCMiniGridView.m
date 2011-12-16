@@ -8,6 +8,7 @@
 
 #import "SCMiniGridView.h"
 #import "SCCellView.h"
+#import "SCMiniGrid.h"
 #import "XY.h"
 
 const NSUInteger MINI_GRID_PADDING = 2;
@@ -25,7 +26,9 @@ const NSUInteger MINI_GRID_PADDING = 2;
         gridForFrame(grid, self.bounds, MINI_GRID_PADDING, MINI_GRID_SIZE);
         int gridLength = sizeof(grid)/sizeof(CGRect);
         for (int i = 0; i < gridLength; i++) {
-            [self addSubview:[[SCCellView alloc] initWithFrame:grid[i]]];
+            SCCellView * cellView = [[SCCellView alloc] initWithFrame:grid[i]];
+            [self addSubview:cellView];
+            cellView.positionInMiniGrid = [[XY alloc] initWithX:i % 3 + 1 Y:ceil(i / 3) + 1];
         }
         self.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin |
                                 UIViewAutoresizingFlexibleWidth |
@@ -35,6 +38,10 @@ const NSUInteger MINI_GRID_PADDING = 2;
                                 UIViewAutoresizingFlexibleBottomMargin;
     }
     return self;
+}
+
+- (void)makeMiniGrid:(XY *)xy {
+    _miniGrid = [[SCMiniGrid alloc] initWithPosition:xy];
 }
 
 - (void)setExpandedFrame:(CGRect)frame {
@@ -51,6 +58,9 @@ const NSUInteger MINI_GRID_PADDING = 2;
         for (UIView * subview in self.superview.subviews) {
             subview.alpha = 1.0;
         }
+        for (SCCellView * subview in self.subviews) {
+            subview.listenForTaps = NO;
+        }
     }];
 }
 
@@ -65,6 +75,10 @@ const NSUInteger MINI_GRID_PADDING = 2;
             if (subview != self) {
                 subview.alpha = 0;
             }
+        }
+        
+        for (SCCellView * subview in self.subviews) {
+            subview.listenForTaps = YES;
         }
 
     }];

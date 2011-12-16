@@ -10,7 +10,20 @@
 
 @implementation XY
 
-@synthesize x;
-@synthesize y;
+@synthesize x = _x;
+@synthesize y = _y;
+
+- (id)initWithX:(NSUInteger)x Y:(NSUInteger)y {
+    self = [super init];
+    if (self) {
+        _x = x;
+        _y = y;
+    }
+    return self;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%u,%u",_x,_y];
+}
 
 @end

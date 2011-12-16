@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XY.h"
+@class XY;
 
 extern const NSUInteger MINI_GRID_SIZE;
 
@@ -16,5 +16,7 @@ extern const NSUInteger MINI_GRID_SIZE;
 }
 
 @property (readonly) XY * positionInGrid;
+
+- (id)initWithPosition:(XY *)position;
 
 @end

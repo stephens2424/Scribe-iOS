@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface XY : NSObject {
-    NSUInteger x;
-    NSUInteger y;
+    NSUInteger _x;
+    NSUInteger _y;
 }
 
 @property (readonly) NSUInteger x;
 @property (readonly) NSUInteger y;
+
+- (id)initWithX:(NSUInteger)x Y:(NSUInteger)y;
 
 @end
