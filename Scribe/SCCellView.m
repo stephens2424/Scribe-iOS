@@ -32,6 +32,7 @@ float RED_COLOR[4] = {1.0, 0, 0, 1.0};
         UIViewAutoresizingFlexibleBottomMargin;
         self.contentMode = UIViewContentModeRedraw;
         _cellState = SCCellUnplayed;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellPlayed:) name:SCCellPlayedNotification object:nil];
     }
     recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(notifyOnTap)];
     self.listenForTaps = NO;
@@ -58,8 +59,21 @@ float RED_COLOR[4] = {1.0, 0, 0, 1.0};
 }
 
 - (void)cellPlayed:(NSNotification *)notification {
-
-    [self setNeedsDisplay];
+    switch (_cellState) {
+        case SCCellInPlayRed:
+            self.cellState = SCCellJustPlayedRed;
+            break;
+        case SCCellInPlayBlue:
+            self.cellState = SCCellJustPlayedBlue;
+            break;
+        case SCCellJustPlayedRed:
+            self.cellState = SCCellPlayedRed;
+            break;
+        case SCCellJustPlayedBlue:
+            self.cellState = SCCellPlayedBlue;
+        default:
+            break;
+    }
 }
 
 - (CGPathRef)roundedRect:(CGRect)bounds radius:(CGFloat)radius {
