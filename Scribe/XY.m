@@ -13,6 +13,16 @@
 @synthesize x = _x;
 @synthesize y = _y;
 
++ (NSSet *)allXYs {
+    NSMutableSet * xys = [[NSMutableSet alloc] initWithCapacity:9];
+    for (int x = 0; x < 2; x++) {
+        for (int y = 0; y < 2; y++) {
+            [xys addObject:[[XY alloc] initWithX:x Y:y]];
+        }
+    }
+    return xys;
+}
+
 - (id)initWithX:(NSUInteger)x Y:(NSUInteger)y {
     self = [super init];
     if (self) {

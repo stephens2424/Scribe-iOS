@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @class XY;
 @class SCCellView;
+@class SCScribeBoard;
 
 extern const NSUInteger MINI_GRID_SIZE;
 static NSString * SCCellSelectedNotification = @"SCMoveSelectedNotification";
@@ -16,11 +17,12 @@ static NSString * SCCellPlayedNotification = @"SCCellPlayedNotification";
 
 @interface SCMiniGrid : NSObject {
     XY * positionInGrid;
+    SCScribeBoard * scribeBoard;
 }
 
 @property (readonly) XY * positionInGrid;
 
-- (id)initWithPosition:(XY *)position;
+- (id)initWithPosition:(XY *)position onBoard:(SCScribeBoard *)board;
 - (void)cellTapped:(SCCellView *)cell;
 
 @end

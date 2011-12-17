@@ -8,6 +8,7 @@
 
 #import "SCMiniGrid.h"
 #import "SCCellView.h"
+#import "SCScribeBoard.h"
 
 const NSUInteger MINI_GRID_SIZE = 3;
 
@@ -15,17 +16,24 @@ const NSUInteger MINI_GRID_SIZE = 3;
 
 @synthesize positionInGrid;
 
-- (id)initWithPosition:(XY *)position {
+- (id)initWithPosition:(XY *)position onBoard:(SCScribeBoard *)board {
     self = [super init];
     if (self) {
         positionInGrid = position;
+        scribeBoard = board;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellTapped:) name:SCCellTappedNotification object:nil];
     }
     return self;
 }
 
-- (void)cellTapped:(SCCellView *)cell {
+- (void)cellTapped:(NSNotification *)notification {
+    SCCellView * cell = [notification object];
     [[NSNotificationCenter defaultCenter] postNotificationName:SCCellSelectedNotification object:cell];
-    cell.cellState = SCCellInPlayBlue;
+    if (scribeBoard.currentPlayer == BLUE) {
+        cell.cellState = SCCellInPlayBlue;
+    } else {
+        cell.cellState = SCCellInPlayRed;
+    }
 }
 
 @end

@@ -10,6 +10,16 @@
 
 extern const NSUInteger GRID_SIZE;
 
-@interface SCScribeBoard : NSObject
+typedef enum {
+    RED,
+    BLUE
+} SCPlayer;
+
+@interface SCScribeBoard : NSObject {
+    SCPlayer currentPlayer;
+    NSSet * miniGrids;
+}
+
+@property (readonly) SCPlayer currentPlayer;
 
 @end

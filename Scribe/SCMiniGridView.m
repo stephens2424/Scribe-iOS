@@ -27,7 +27,6 @@ const NSUInteger MINI_GRID_PADDING = 2;
         int gridLength = sizeof(grid)/sizeof(CGRect);
         for (int i = 0; i < gridLength; i++) {
             SCCellView * cellView = [[SCCellView alloc] initWithFrame:grid[i]];
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellTapped:) name:SCCellTappedNotification object:cellView];
             [self addSubview:cellView];
             cellView.positionInMiniGrid = [[XY alloc] initWithX:i % 3 + 1 Y:ceil(i / 3) + 1];
         }
@@ -41,12 +40,8 @@ const NSUInteger MINI_GRID_PADDING = 2;
     return self;
 }
 
-- (void)cellTapped:(NSNotification *)notification {
-    [_miniGrid cellTapped:[notification object]];
-}
-
-- (void)makeMiniGrid:(XY *)xy {
-    _miniGrid = [[SCMiniGrid alloc] initWithPosition:xy];
+- (void)makeMiniGrid:(XY *)xy onBoard:(SCScribeBoard *)board{
+    _miniGrid = [[SCMiniGrid alloc] initWithPosition:xy onBoard:board];
 }
 
 - (void)setExpandedFrame:(CGRect)frame {

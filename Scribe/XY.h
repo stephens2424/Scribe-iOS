@@ -16,6 +16,8 @@
 @property (readonly) NSUInteger x;
 @property (readonly) NSUInteger y;
 
++ (NSSet *)allXYs;
+
 - (id)initWithX:(NSUInteger)x Y:(NSUInteger)y;
 
 @end

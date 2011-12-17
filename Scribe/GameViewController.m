@@ -10,6 +10,7 @@
 #import "SCGameBoardView.h"
 #import "SCMiniGridView.h"
 #import "SCMiniGrid.h"
+#import "SCScribeBoard.h"
 
 @implementation GameViewController
 
@@ -46,9 +47,7 @@
     self.navigationItem.rightBarButtonItem.enabled = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveSelected:) name:SCCellSelectedNotification object:nil];
     SCGameBoardView * gameBoard = [[SCGameBoardView alloc] initWithFrame:CGRectMake(20, 116, 280, 280)];
-    for (SCMiniGridView * view in gameBoard.subviews) {
-        
-    }
+    SCScribeBoard * scribeBoard = [[SCScribeBoard alloc] init];
     [self.view addSubview:gameBoard];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:gameBoard action:@selector(resetBoard)]];
     [super viewDidLoad];

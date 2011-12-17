@@ -26,7 +26,6 @@ const NSUInteger GRID_PADDING = 4;
             SCMiniGridView * miniGrid = [[SCMiniGridView alloc] initWithFrame:grid[i]];
             [miniGrid setExpandedFrame:self.bounds];
             [self addSubview:miniGrid];
-            [miniGrid makeMiniGrid:[[XY alloc] initWithX:i % 3 + 1 Y:ceil(i / 3) + 1]];
         }
     }
     return self;

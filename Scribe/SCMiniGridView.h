@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SCGridView.h"
 @class SCMiniGrid;
+@class SCScribeBoard;
 @class XY;
 
 @interface SCMiniGridView : SCGridView {
@@ -21,6 +22,6 @@
 @property (nonatomic,assign) CGRect expandedFrame;
 
 - (void)reduceFrame;
-- (void)makeMiniGrid:(XY *)xy;
+- (void)makeMiniGrid:(XY *)xy onBoard:(SCScribeBoard *)board;
 
 @end
