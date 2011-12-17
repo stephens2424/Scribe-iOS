@@ -14,6 +14,7 @@
 @synthesize color;
 @synthesize positionInMiniGrid = xy;
 @synthesize listenForTaps = _listenForTaps;
+@synthesize cellState;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -28,6 +29,7 @@
         self.contentMode = UIViewContentModeRedraw;
         float _color[4] = {0.8, 0.8, 0.8, 0.8};
         self.color = CGColorCreate([self colorSpace], _color);
+        cellState = SCCellUnplayed;
     }
     recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(notifyOnTap)];
     self.listenForTaps = NO;
@@ -45,7 +47,8 @@
 
 - (void)notifyOnTap {
     [[NSNotificationCenter defaultCenter] postNotificationName:SCCellTappedNotification object:self];
-    NSLog(@"Tap at %@",xy);
+    cellState = SCCellJustPlayed;
+    [self setNeedsDisplay];
 }
 
 - (CGPathRef)roundedRect:(CGRect)bounds radius:(CGFloat)radius {
@@ -111,6 +114,23 @@
     CGContextSetRGBStrokeColor(context, .1, .1, .1, .4);
     CGContextSetLineWidth(context, 1);
     CGContextStrokePath(context);
+    
+    switch (cellState) {
+        case SCCellInPlay:
+            CGContextBeginPath(context);
+            CGContextSetRGBStrokeColor(context, 1, 1, 1, 1);
+            CGContextAddArc(context, self.bounds.size.height/2,self.bounds.size.width/2, self.bounds.size.height/4, 0, 2*M_PI, 0);
+            CGContextStrokePath(context);
+            break;
+        case SCCellJustPlayed:
+            CGContextBeginPath(context);
+            CGContextSetRGBFillColor(context, 1, 1, 1, 1);
+            CGContextAddArc(context, self.bounds.size.height/2,self.bounds.size.width/2, self.bounds.size.height/4, 0, 2*M_PI, 0);
+            CGContextFillPath(context);
+            break;
+        default:
+            break;
+    }
     
 }
 
