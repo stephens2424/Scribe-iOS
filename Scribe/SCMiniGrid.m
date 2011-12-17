@@ -7,6 +7,7 @@
 //
 
 #import "SCMiniGrid.h"
+#import "SCCellView.h"
 
 const NSUInteger MINI_GRID_SIZE = 3;
 
@@ -20,6 +21,10 @@ const NSUInteger MINI_GRID_SIZE = 3;
         positionInGrid = position;
     }
     return self;
+}
+
+- (void)cellTapped:(SCCellView *)cell {
+    cell.cellState = SCCellInPlayBlue;
 }
 
 @end

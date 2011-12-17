@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class XY;
+@class SCCellView;
 
 extern const NSUInteger MINI_GRID_SIZE;
 
@@ -18,5 +19,6 @@ extern const NSUInteger MINI_GRID_SIZE;
 @property (readonly) XY * positionInGrid;
 
 - (id)initWithPosition:(XY *)position;
+- (void)cellTapped:(SCCellView *)cell;
 
 @end

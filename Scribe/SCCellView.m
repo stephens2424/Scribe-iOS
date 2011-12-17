@@ -7,14 +7,18 @@
 //
 
 #import "SCCellView.h"
+#import "SCMiniGridView.h"
 #import "XY.h"
+
+float UNPLAYED_COLOR[4] = {0.8, 0.8, 0.8, 0.8};
+float BLUE_COLOR[4] = {0.0, 0.0, 1.0, 1.0};
+float RED_COLOR[4] = {1.0, 0, 0, 1.0};
 
 @implementation SCCellView
 
-@synthesize color;
 @synthesize positionInMiniGrid = xy;
 @synthesize listenForTaps = _listenForTaps;
-@synthesize cellState;
+@synthesize cellState = _cellState;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -27,14 +31,17 @@
         UIViewAutoresizingFlexibleHeight |
         UIViewAutoresizingFlexibleBottomMargin;
         self.contentMode = UIViewContentModeRedraw;
-        float _color[4] = {0.8, 0.8, 0.8, 0.8};
-        self.color = CGColorCreate([self colorSpace], _color);
-        cellState = SCCellUnplayed;
+        _cellState = SCCellUnplayed;
     }
     recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(notifyOnTap)];
     self.listenForTaps = NO;
     self.backgroundColor = [UIColor clearColor];
     return self;
+}
+
+- (void)setCellState:(SCCellState)cellState {
+    _cellState = cellState;
+    [self setNeedsDisplay];
 }
 
 - (void)setListenForTaps:(BOOL)listenForTaps {
@@ -48,7 +55,10 @@
 
 - (void)notifyOnTap {
     [[NSNotificationCenter defaultCenter] postNotificationName:SCCellTappedNotification object:self];
-    cellState = SCCellJustPlayed;
+}
+
+- (void)cellPlayed:(NSNotification *)notification {
+
     [self setNeedsDisplay];
 }
 
@@ -74,17 +84,22 @@
     return _transformToSmall;
 }
 
+- (CGColorRef)unplayed {
+    if (!_unplayed) {
+        _unplayed = CGColorCreate([self colorSpace], UNPLAYED_COLOR);
+    }
+    return _unplayed;
+}
+
 - (CGColorRef)red {
     if (!_red) {
-        float red[4] = {1.0, 0, 0, 1.0};
-        _red = CGColorCreate([self colorSpace], red);
+        _red = CGColorCreate([self colorSpace], RED_COLOR);
     }
     return _red;
 }
 - (CGColorRef)blue {
     if (!_blue) {
-        float blue[4] = {0.0, 0.0, 1.0, 1.0};
-        _blue = CGColorCreate([self colorSpace], blue);
+        _blue = CGColorCreate([self colorSpace], BLUE_COLOR);
     }
     return _blue;
 }
@@ -102,6 +117,15 @@
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
+    CGColorRef color;
+    if (_cellState == SCCellPlayedRed || _cellState ==  SCCellInPlayRed | _cellState == SCCellJustPlayedRed) {
+        color = [self red];
+    } else if (_cellState == SCCellPlayedBlue || _cellState == SCCellInPlayBlue || _cellState == SCCellJustPlayedBlue) {
+        color = [self blue];
+    } else {
+        color = [self unplayed];
+    }
+    
     CGContextSetFillColorWithColor(context, color);
     CGContextBeginPath(context);
     CGPathRef roundedRect = [self roundedRect:rect radius:self.bounds.size.height/5];
@@ -116,21 +140,16 @@
     CGContextSetLineWidth(context, 1);
     CGContextStrokePath(context);
     
-    switch (cellState) {
-        case SCCellInPlay:
-            CGContextBeginPath(context);
-            CGContextSetRGBStrokeColor(context, 1, 1, 1, 1);
-            CGContextAddArc(context, self.bounds.size.height/2,self.bounds.size.width/2, self.bounds.size.height/4, 0, 2*M_PI, 0);
-            CGContextStrokePath(context);
-            break;
-        case SCCellJustPlayed:
-            CGContextBeginPath(context);
-            CGContextSetRGBFillColor(context, 1, 1, 1, 1);
-            CGContextAddArc(context, self.bounds.size.height/2,self.bounds.size.width/2, self.bounds.size.height/4, 0, 2*M_PI, 0);
-            CGContextFillPath(context);
-            break;
-        default:
-            break;
+    if (_cellState == SCCellInPlayRed || _cellState == SCCellInPlayBlue) {
+        CGContextBeginPath(context);
+        CGContextSetRGBStrokeColor(context, 1, 1, 1, 1);
+        CGContextAddArc(context, self.bounds.size.height/2,self.bounds.size.width/2, self.bounds.size.height/4, 0, 2*M_PI, 0);
+        CGContextStrokePath(context);
+    } else if (_cellState == SCCellJustPlayedRed || _cellState == SCCellJustPlayedBlue) {
+        CGContextBeginPath(context);
+        CGContextSetRGBFillColor(context, 1, 1, 1, 1);
+        CGContextAddArc(context, self.bounds.size.height/2,self.bounds.size.width/2, self.bounds.size.height/4, 0, 2*M_PI, 0);
+        CGContextFillPath(context);
     }
     
 }
