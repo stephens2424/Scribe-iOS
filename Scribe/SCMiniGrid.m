@@ -24,7 +24,7 @@ const NSUInteger MINI_GRID_SIZE = 3;
 }
 
 - (void)cellTapped:(SCCellView *)cell {
-    [[NSNotificationCenter defaultCenter] postNotificationName:SCMoveSelectedNotification object:cell];
+    [[NSNotificationCenter defaultCenter] postNotificationName:SCCellSelectedNotification object:cell];
     cell.cellState = SCCellInPlayBlue;
 }
 

@@ -10,7 +10,6 @@
 @class XY;
 
 static NSString * SCCellTappedNotification = @"SCCellTappedNotification";
-static NSString * SCCellPlayedNotification = @"SCCellPlayedNotification";
 
 typedef enum {
     SCCellUnplayed,

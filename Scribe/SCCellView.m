@@ -8,6 +8,7 @@
 
 #import "SCCellView.h"
 #import "SCMiniGridView.h"
+#import "SCMiniGrid.h"
 #import "XY.h"
 
 float UNPLAYED_COLOR[4] = {0.8, 0.8, 0.8, 0.8};
@@ -33,6 +34,7 @@ float RED_COLOR[4] = {1.0, 0, 0, 1.0};
         self.contentMode = UIViewContentModeRedraw;
         _cellState = SCCellUnplayed;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellPlayed:) name:SCCellPlayedNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellSelected:) name:SCCellSelectedNotification object:nil];
     }
     recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(notifyOnTap)];
     self.listenForTaps = NO;
@@ -59,7 +61,8 @@ float RED_COLOR[4] = {1.0, 0, 0, 1.0};
 }
 
 - (void)cellSelected:(NSNotification *)notification {
-    self.cellState = SCCellUnplayed;
+    if (_cellState == SCCellInPlayBlue || _cellState == SCCellInPlayRed)
+        self.cellState = SCCellUnplayed;
 }
 
 - (void)cellPlayed:(NSNotification *)notification {

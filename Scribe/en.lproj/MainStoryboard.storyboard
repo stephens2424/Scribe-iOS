@@ -76,7 +76,11 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Scribe" id="NQe-Qy-CNn">
-                        <barButtonItem key="rightBarButtonItem" title="Make Move" style="done" id="0Xg-Ed-yrp"/>
+                        <barButtonItem key="rightBarButtonItem" title="Make Move" style="done" id="0Xg-Ed-yrp">
+                            <connections>
+                                <action selector="makeMove:" destination="e2E-qP-BnW" id="maG-iE-JNI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
             </objects>
