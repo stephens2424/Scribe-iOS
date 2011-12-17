@@ -43,6 +43,7 @@
     } else {
         [self removeGestureRecognizer:recognizer];
     }
+    _listenForTaps = listenForTaps;
 }
 
 - (void)notifyOnTap {
