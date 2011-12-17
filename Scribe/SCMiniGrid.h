@@ -11,6 +11,7 @@
 @class SCCellView;
 
 extern const NSUInteger MINI_GRID_SIZE;
+NSString * SCMoveSelectedNotification = @"SCMoveSelectedNotification";
 
 @interface SCMiniGrid : NSObject {
     XY * positionInGrid;

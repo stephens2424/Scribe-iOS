@@ -9,6 +9,7 @@
 #import "GameViewController.h"
 #import "SCGameBoardView.h"
 #import "SCMiniGridView.h"
+#import "SCMiniGrid.h"
 
 @implementation GameViewController
 
@@ -42,6 +43,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveSelected:) name:SCMoveSelectedNotification object:nil];
     SCGameBoardView * gameBoard = [[SCGameBoardView alloc] initWithFrame:CGRectMake(20, 116, 280, 280)];
     for (SCMiniGridView * view in gameBoard.subviews) {
         
@@ -49,6 +51,18 @@
     [self.view addSubview:gameBoard];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:gameBoard action:@selector(resetBoard)]];
     [super viewDidLoad];
+}
+
+- (void)moveSelected:(NSNotification *)notification {
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+}
+
+- (void)moveUnselected:(NSNotification *)notification {
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+}
+
+- (IBAction)makeMove:(id)sender {
+    
 }
 
 - (void)viewDidUnload

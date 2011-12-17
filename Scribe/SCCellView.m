@@ -58,6 +58,10 @@ float RED_COLOR[4] = {1.0, 0, 0, 1.0};
     [[NSNotificationCenter defaultCenter] postNotificationName:SCCellTappedNotification object:self];
 }
 
+- (void)cellSelected:(NSNotification *)notification {
+    self.cellState = SCCellUnplayed;
+}
+
 - (void)cellPlayed:(NSNotification *)notification {
     switch (_cellState) {
         case SCCellInPlayRed:
