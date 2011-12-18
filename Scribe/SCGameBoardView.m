@@ -10,6 +10,7 @@
 #import "SCMiniGridView.h"
 #import "SCScribeBoard.h"
 #import "XY.h"
+#import "SCMiniGrid.h"
 
 const NSUInteger GRID_PADDING = 4;
 
@@ -27,6 +28,7 @@ const NSUInteger GRID_PADDING = 4;
             [miniGrid setExpandedFrame:self.bounds];
             [self addSubview:miniGrid];
         }
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetBoard) name:SCCellPlayedNotification object:nil];
     }
     return self;
 }
