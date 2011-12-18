@@ -32,6 +32,13 @@
     return self;
 }
 
+- (BOOL)isEqual:(XY *)object {
+    if ([object x] == _x && [object y] == _y)
+        return YES;
+    else
+        return NO;
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"%u,%u",_x,_y];
 }

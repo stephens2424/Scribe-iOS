@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import "SCGridView.h"
+@class SCScribeBoard;
 
-@interface SCGameBoardView : SCGridView {
+@interface SCGameBoardView : UIView {
+    SCScribeBoard * scribeBoard;
 }
+
+- (id)initWithFrame:(CGRect)frame gameBoard:(SCScribeBoard *)board;
 
 @end

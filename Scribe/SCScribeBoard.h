@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+@class SCMiniGrid;
+@class XY;
 
 extern const NSUInteger GRID_SIZE;
 
@@ -22,5 +24,7 @@ typedef enum {
 
 @property (readonly) SCPlayer currentPlayer;
 @property (readonly) NSSet * miniGrids;
+
+- (SCMiniGrid *)miniGridAt:(XY *)xy;
 
 @end

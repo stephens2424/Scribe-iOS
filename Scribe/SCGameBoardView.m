@@ -20,15 +20,24 @@ const NSUInteger GRID_PADDING = 4;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        CGRect grid[9];
-        gridForFrame(grid, frame, GRID_PADDING,GRID_SIZE );
-        int gridLength = sizeof(grid)/sizeof(grid[0]);
-        for (int i = 0; i < gridLength; i++) {
-            SCMiniGridView * miniGrid = [[SCMiniGridView alloc] initWithFrame:grid[i]];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetBoard) name:SCCellPlayedNotification object:nil];
+    }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame gameBoard:(SCScribeBoard *)board {
+    self = [self initWithFrame:frame];
+    scribeBoard = board;
+    CGFloat cellWidth = frame.size.width/3 - GRID_PADDING;
+    CGFloat cellHeight = frame.size.height/3 - GRID_PADDING;
+    
+    for (int x = 0; x < GRID_SIZE; x++) {
+        for (int y = 0; y < GRID_SIZE; y++) {
+            CGRect grid = CGRectMake(x * cellWidth + (x + 1) * GRID_PADDING, y * cellHeight + (y + 1) * GRID_PADDING, cellWidth, cellHeight);
+            SCMiniGridView * miniGrid = [[SCMiniGridView alloc] initWithFrame:grid miniGrid:[board miniGridAt:[[XY alloc] initWithX:x Y:y]]];
             [miniGrid setExpandedFrame:self.bounds];
             [self addSubview:miniGrid];
         }
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetBoard) name:SCCellPlayedNotification object:nil];
     }
     return self;
 }

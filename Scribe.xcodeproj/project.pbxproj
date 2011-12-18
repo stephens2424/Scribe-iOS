@@ -12,7 +12,6 @@
 		DCC8EFF4149888760007ABB6 /* SCMiniGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC8EFF3149888760007ABB6 /* SCMiniGridView.m */; };
 		DCC8EFF8149888D20007ABB6 /* SCScribeBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC8EFF7149888D20007ABB6 /* SCScribeBoard.m */; };
 		DCC8EFFB14988C110007ABB6 /* SCMiniGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC8EFFA14988C110007ABB6 /* SCMiniGrid.m */; };
-		DCC8F0041498A3E30007ABB6 /* SCGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC8F0031498A3E30007ABB6 /* SCGridView.m */; };
 		DCD1287D1495D53F00E75E15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD1287C1495D53F00E75E15 /* UIKit.framework */; };
 		DCD1287F1495D53F00E75E15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD1287E1495D53F00E75E15 /* Foundation.framework */; };
 		DCD128811495D53F00E75E15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD128801495D53F00E75E15 /* CoreGraphics.framework */; };
@@ -52,8 +51,6 @@
 		DCC8EFF7149888D20007ABB6 /* SCScribeBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCScribeBoard.m; sourceTree = "<group>"; };
 		DCC8EFF914988C110007ABB6 /* SCMiniGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMiniGrid.h; sourceTree = "<group>"; };
 		DCC8EFFA14988C110007ABB6 /* SCMiniGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMiniGrid.m; sourceTree = "<group>"; };
-		DCC8F0021498A3E30007ABB6 /* SCGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGridView.h; sourceTree = "<group>"; };
-		DCC8F0031498A3E30007ABB6 /* SCGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGridView.m; sourceTree = "<group>"; };
 		DCD128781495D53F00E75E15 /* Scribe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scribe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCD1287C1495D53F00E75E15 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DCD1287E1495D53F00E75E15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -165,8 +162,6 @@
 				DCC8EFF3149888760007ABB6 /* SCMiniGridView.m */,
 				DCD128911495D53F00E75E15 /* SCViewController.h */,
 				DCD128921495D53F00E75E15 /* SCViewController.m */,
-				DCC8F0021498A3E30007ABB6 /* SCGridView.h */,
-				DCC8F0031498A3E30007ABB6 /* SCGridView.m */,
 				DCD128831495D53F00E75E15 /* Supporting Files */,
 			);
 			path = Scribe;
@@ -318,7 +313,6 @@
 				DCC8EFF4149888760007ABB6 /* SCMiniGridView.m in Sources */,
 				DCC8EFF8149888D20007ABB6 /* SCScribeBoard.m in Sources */,
 				DCC8EFFB14988C110007ABB6 /* SCMiniGrid.m in Sources */,
-				DCC8F0041498A3E30007ABB6 /* SCGridView.m in Sources */,
 				DC6CEA751499147400F28D3B /* XY.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,14 +22,6 @@ const NSUInteger MINI_GRID_PADDING = 2;
     self = [super initWithFrame:frame];
     if (self) {
         originalFrame = frame;
-        CGRect grid[9];
-        gridForFrame(grid, self.bounds, MINI_GRID_PADDING, MINI_GRID_SIZE);
-        int gridLength = sizeof(grid)/sizeof(CGRect);
-        for (int i = 0; i < gridLength; i++) {
-            SCCellView * cellView = [[SCCellView alloc] initWithFrame:grid[i]];
-            [self addSubview:cellView];
-            cellView.positionInMiniGrid = [[XY alloc] initWithX:i % 3 + 1 Y:ceil(i / 3) + 1];
-        }
         self.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin |
                                 UIViewAutoresizingFlexibleWidth |
                                 UIViewAutoresizingFlexibleRightMargin |
@@ -40,8 +32,21 @@ const NSUInteger MINI_GRID_PADDING = 2;
     return self;
 }
 
-- (void)makeMiniGrid:(XY *)xy onBoard:(SCScribeBoard *)board{
-    _miniGrid = [[SCMiniGrid alloc] initWithPosition:xy onBoard:board];
+- (id)initWithFrame:(CGRect)frame miniGrid:(SCMiniGrid *)miniGrid {
+    self = [self initWithFrame:frame];
+    CGFloat cellWidth = frame.size.width/3 - MINI_GRID_PADDING;
+    CGFloat cellHeight = frame.size.height/3 - MINI_GRID_PADDING;
+    
+    for (int x = 0; x < MINI_GRID_SIZE; x++) {
+        for (int y = 0; y < MINI_GRID_SIZE; y++) {
+            CGRect grid = CGRectMake(x * cellWidth + (x + 1) * MINI_GRID_PADDING, y * cellHeight + (y + 1) * MINI_GRID_PADDING, cellWidth, cellHeight);
+            SCCellView * cellView = [[SCCellView alloc] initWithFrame:grid];
+            [self addSubview:cellView];
+            cellView.positionInMiniGrid = [[XY alloc] initWithX:x Y:y];
+            [[NSNotificationCenter defaultCenter] addObserver:miniGrid selector:@selector(cellTapped:) name:SCCellTappedNotification object:cellView];
+        }
+    }
+    return self;
 }
 
 - (void)setExpandedFrame:(CGRect)frame {

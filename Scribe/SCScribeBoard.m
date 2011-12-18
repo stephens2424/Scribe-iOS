@@ -39,4 +39,17 @@ const NSUInteger GRID_SIZE = 3;
     }
 }
 
+- (SCMiniGrid *)miniGridAt:(XY *)xy {
+    BOOL (^test)(SCMiniGrid * obj, BOOL *stop);
+    test = ^ (SCMiniGrid * obj, BOOL *stop) {
+        if ([[obj positionInGrid] isEqual:xy]) {
+            *stop = YES;
+            return YES;
+        } else {
+            return NO;
+        }
+    };
+    return [[miniGrids objectsPassingTest:test] anyObject];
+}
+
 @end

@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SCGridView.h"
 @class SCMiniGrid;
 @class SCScribeBoard;
 @class XY;
 
-@interface SCMiniGridView : SCGridView {
+@interface SCMiniGridView : UIView {
     CGRect originalFrame;
     CGRect expandedFrame;
     UITapGestureRecognizer * gestureRecognizer;
@@ -21,7 +20,7 @@
 
 @property (nonatomic,assign) CGRect expandedFrame;
 
+- (id)initWithFrame:(CGRect)frame miniGrid:(SCMiniGrid *)miniGrid;
 - (void)reduceFrame;
-- (void)makeMiniGrid:(XY *)xy onBoard:(SCScribeBoard *)board;
 
 @end
