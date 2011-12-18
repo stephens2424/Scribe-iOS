@@ -7,7 +7,10 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+@class SCScribeBoard;
 
-@interface ScribeTests : SenTestCase
+@interface ScribeTests : SenTestCase {
+    SCScribeBoard * testSubject;
+}
 
 @end

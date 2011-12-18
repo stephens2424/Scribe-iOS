@@ -7,13 +7,14 @@
 //
 
 #import "ScribeTests.h"
+#import "SCScribeBoard.h"
 
 @implementation ScribeTests
 
 - (void)setUp
 {
     [super setUp];
-    
+    testSubject = [[SCScribeBoard alloc] init];
     // Set-up code here.
 }
 
@@ -24,9 +25,11 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testMiniGrids
 {
-    STFail(@"Unit tests are not implemented yet in ScribeTests");
+    NSUInteger n = [[testSubject miniGrids] count];
+    NSUInteger miniGrids = 9;
+    STAssertEqualsWithAccuracy(n, miniGrids, 0, @"Board does not have 9 mini grids.");
 }
 
 @end
