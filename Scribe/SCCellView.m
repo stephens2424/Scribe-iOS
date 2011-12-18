@@ -35,10 +35,10 @@ float RED_COLOR[4] = {1.0, 0, 0, 1.0};
         _cellState = SCCellUnplayed;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellPlayed:) name:SCCellPlayedNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellSelected:) name:SCCellSelectedNotification object:nil];
+        recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(notifyOnTap)];
+        self.listenForTaps = NO;
+        self.backgroundColor = [UIColor clearColor];
     }
-    recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(notifyOnTap)];
-    self.listenForTaps = NO;
-    self.backgroundColor = [UIColor clearColor];
     return self;
 }
 

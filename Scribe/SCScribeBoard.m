@@ -15,6 +15,7 @@ const NSUInteger GRID_SIZE = 3;
 @implementation SCScribeBoard
 
 @synthesize currentPlayer;
+@synthesize miniGrids;
 
 - (id)init {
     self = [super init];

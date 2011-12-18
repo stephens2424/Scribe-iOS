@@ -21,5 +21,6 @@ typedef enum {
 }
 
 @property (readonly) SCPlayer currentPlayer;
+@property (readonly) NSSet * miniGrids;
 
 @end
