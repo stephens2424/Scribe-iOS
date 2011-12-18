@@ -50,11 +50,12 @@
     SCGameBoardView * gameBoard = [[SCGameBoardView alloc] initWithFrame:CGRectMake(20, 116, 280, 280)];
     SCScribeBoard * scribeBoard = [[SCScribeBoard alloc] init];
     int miniGridIndex = 0;
+    NSNotificationCenter * nc = [NSNotificationCenter defaultCenter];
     for (SCMiniGrid * miniGrid in scribeBoard.miniGrids) {
-        NSNotificationCenter * nc = [NSNotificationCenter defaultCenter];
         for (SCCellView * cell in [[gameBoard.subviews objectAtIndex:miniGridIndex] subviews]) {
             [nc addObserver:miniGrid selector:@selector(cellTapped:) name:SCCellTappedNotification object:cell];
         }
+        miniGridIndex += 1;
     }
     [self.view addSubview:gameBoard];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:gameBoard action:@selector(resetBoard)]];

@@ -21,7 +21,6 @@ const NSUInteger MINI_GRID_SIZE = 3;
     if (self) {
         positionInGrid = position;
         scribeBoard = board;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellTapped:) name:SCCellTappedNotification object:nil];
     }
     return self;
 }
@@ -34,6 +33,7 @@ const NSUInteger MINI_GRID_SIZE = 3;
     } else {
         cell.cellState = SCCellInPlayRed;
     }
+    NSLog(@"Cell %@ in miniGrid %@",cell.positionInMiniGrid,positionInGrid);
 }
 
 @end
