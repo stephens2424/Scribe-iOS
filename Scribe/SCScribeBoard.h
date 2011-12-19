@@ -20,10 +20,22 @@ typedef enum {
 @interface SCScribeBoard : NSObject {
     SCPlayer currentPlayer;
     NSSet * miniGrids;
+    SCMiniGrid * lastRedPlayedMiniGrid;
+    XY * lastRedPlayedCell;
+    SCMiniGrid * lastBluePlayedMiniGrid;
+    XY * lastBluePlayedCell;
+    SCMiniGrid * currentlySelectedMiniGrid;
+    XY * currentlySelectedCell;
 }
 
 @property (readonly) SCPlayer currentPlayer;
 @property (readonly) NSSet * miniGrids;
+@property (retain) SCMiniGrid * lastRedPlayedMiniGrid;
+@property (retain) SCMiniGrid * lastBluePlayedMiniGrid;
+@property (retain) XY * lastRedPlayedCell;
+@property (retain) XY * lastBluePlayedCell;
+@property (retain) SCMiniGrid * currentlySelectedMiniGrid;
+@property (retain) XY * currentlySelectedCell;
 
 - (SCMiniGrid *)miniGridAt:(XY *)xy;
 

@@ -16,6 +16,12 @@ const NSUInteger GRID_SIZE = 3;
 
 @synthesize currentPlayer;
 @synthesize miniGrids;
+@synthesize lastRedPlayedCell;
+@synthesize lastBluePlayedCell;
+@synthesize lastRedPlayedMiniGrid;
+@synthesize lastBluePlayedMiniGrid;
+@synthesize currentlySelectedCell;
+@synthesize currentlySelectedMiniGrid;
 
 - (id)init {
     self = [super init];
@@ -33,10 +39,16 @@ const NSUInteger GRID_SIZE = 3;
 
 - (void)switchPlayers:(NSNotification *)notification {
     if (currentPlayer == SCRedPlayer) {
+        lastRedPlayedCell = currentlySelectedCell;
+        lastRedPlayedMiniGrid = currentlySelectedMiniGrid;
         currentPlayer = SCBluePlayer;
     } else {
+        lastBluePlayedCell = currentlySelectedCell;
+        lastBluePlayedMiniGrid = currentlySelectedMiniGrid;
         currentPlayer = SCRedPlayer;
     }
+    currentlySelectedCell = nil;
+    currentlySelectedMiniGrid = nil;
 }
 
 - (SCMiniGrid *)miniGridAt:(XY *)xy {
