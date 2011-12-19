@@ -47,7 +47,7 @@
 {
     self.navigationItem.rightBarButtonItem.enabled = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveSelected:) name:SCCellSelectedNotification object:nil];
-    SCScribeBoard * scribeBoard = [[SCScribeBoard alloc] init];
+    scribeBoard = [[SCScribeBoard alloc] init];
     SCGameBoardView * gameBoard = [[SCGameBoardView alloc] initWithFrame:CGRectMake(20, 116, 280, 280) gameBoard:scribeBoard];
     [self.view addSubview:gameBoard];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:gameBoard action:@selector(resetBoard)]];
@@ -64,7 +64,7 @@
 
 - (IBAction)makeMove:(id)sender {
     self.navigationItem.rightBarButtonItem.enabled = NO;
-    [[NSNotificationCenter defaultCenter] postNotificationName:SCCellPlayedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:SCCellPlayedNotification object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithUnsignedInteger:scribeBoard.currentPlayer],@"Player", nil]];
 }
 
 - (void)viewDidUnload

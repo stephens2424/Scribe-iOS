@@ -28,11 +28,12 @@ const NSUInteger MINI_GRID_SIZE = 3;
 - (void)cellTapped:(NSNotification *)notification {
     SCCellView * cell = [notification object];
     [[NSNotificationCenter defaultCenter] postNotificationName:SCCellSelectedNotification object:cell];
-    if (scribeBoard.currentPlayer == BLUE) {
-        cell.cellState = SCCellInPlayBlue;
+    if (scribeBoard.currentPlayer == SCBluePlayer) {
+        cell.cellOwnership = SCCellBlue;
     } else {
-        cell.cellState = SCCellInPlayRed;
+        cell.cellOwnership = SCCellRed;
     }
+    cell.cellState = SCCellInPlay;
     NSLog(@"Cell %@ in miniGrid %@",cell.positionInMiniGrid,positionInGrid);
 }
 

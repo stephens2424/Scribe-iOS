@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class SCScribeBoard;
 
 @interface GameViewController : UIViewController {
-    
+    SCScribeBoard * scribeBoard;
 }
 
 @end

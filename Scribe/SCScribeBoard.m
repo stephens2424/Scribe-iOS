@@ -20,7 +20,7 @@ const NSUInteger GRID_SIZE = 3;
 - (id)init {
     self = [super init];
     if (self) {
-        currentPlayer = RED;
+        currentPlayer = SCRedPlayer;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchPlayers:) name:SCCellPlayedNotification object:nil];
         NSMutableSet * minigrids = [[NSMutableSet alloc] initWithCapacity:9];
         for (XY * xy in [XY allXYs]) {
@@ -32,10 +32,10 @@ const NSUInteger GRID_SIZE = 3;
 }
 
 - (void)switchPlayers:(NSNotification *)notification {
-    if (currentPlayer == RED) {
-        currentPlayer = BLUE;
+    if (currentPlayer == SCRedPlayer) {
+        currentPlayer = SCBluePlayer;
     } else {
-        currentPlayer = RED;
+        currentPlayer = SCRedPlayer;
     }
 }
 

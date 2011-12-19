@@ -13,8 +13,8 @@
 extern const NSUInteger GRID_SIZE;
 
 typedef enum {
-    RED,
-    BLUE
+    SCRedPlayer,
+    SCBluePlayer
 } SCPlayer;
 
 @interface SCScribeBoard : NSObject {

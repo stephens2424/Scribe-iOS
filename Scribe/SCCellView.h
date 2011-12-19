@@ -13,13 +13,16 @@ static NSString * SCCellTappedNotification = @"SCCellTappedNotification";
 
 typedef enum {
     SCCellUnplayed,
-    SCCellInPlayRed,
-    SCCellInPlayBlue,
-    SCCellJustPlayedRed,
-    SCCellJustPlayedBlue,
-    SCCellPlayedRed,
-    SCCellPlayedBlue
+    SCCellInPlay,
+    SCCellJustPlayed,
+    SCCellPlayed
 } SCCellState;
+
+typedef enum {
+    SCCellUnowned,
+    SCCellRed,
+    SCCellBlue
+} SCCellOwnership;
 
 @interface SCCellView : UIView {
     CGAffineTransform * _transformToSmall;
@@ -29,6 +32,7 @@ typedef enum {
     CGColorSpaceRef _colorSpace;
     UIGestureRecognizer * recognizer;
     SCCellState _cellState;
+    SCCellOwnership _cellOwnership;
     XY * xy;
     BOOL _listenForTaps;
 }
@@ -36,6 +40,7 @@ typedef enum {
 @property (retain) XY * positionInMiniGrid;
 @property (nonatomic,assign) BOOL listenForTaps;
 @property (nonatomic,assign) SCCellState cellState;
+@property (nonatomic,assign) SCCellOwnership cellOwnership;
 
 - (CGAffineTransform *)transformToSmall;
 - (CGColorRef)red;

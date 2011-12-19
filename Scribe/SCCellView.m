@@ -9,6 +9,7 @@
 #import "SCCellView.h"
 #import "SCMiniGridView.h"
 #import "SCMiniGrid.h"
+#import "SCScribeBoard.h"
 #import "XY.h"
 
 float UNPLAYED_COLOR[4] = {0.8, 0.8, 0.8, 0.8};
@@ -20,6 +21,7 @@ float RED_COLOR[4] = {1.0, 0, 0, 1.0};
 @synthesize positionInMiniGrid = xy;
 @synthesize listenForTaps = _listenForTaps;
 @synthesize cellState = _cellState;
+@synthesize cellOwnership = _cellOwnership;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -33,6 +35,7 @@ float RED_COLOR[4] = {1.0, 0, 0, 1.0};
         UIViewAutoresizingFlexibleBottomMargin;
         self.contentMode = UIViewContentModeRedraw;
         _cellState = SCCellUnplayed;
+        _cellOwnership = SCCellUnowned;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellPlayed:) name:SCCellPlayedNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellSelected:) name:SCCellSelectedNotification object:nil];
         recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(notifyOnTap)];
@@ -61,25 +64,25 @@ float RED_COLOR[4] = {1.0, 0, 0, 1.0};
 }
 
 - (void)cellSelected:(NSNotification *)notification {
-    if (_cellState == SCCellInPlayBlue || _cellState == SCCellInPlayRed)
+    if (_cellState == SCCellInPlay) {
         self.cellState = SCCellUnplayed;
+        self.cellOwnership = SCCellUnowned;
+    }
 }
 
 - (void)cellPlayed:(NSNotification *)notification {
-    switch (_cellState) {
-        case SCCellInPlayRed:
-            self.cellState = SCCellJustPlayedRed;
-            break;
-        case SCCellInPlayBlue:
-            self.cellState = SCCellJustPlayedBlue;
-            break;
-        case SCCellJustPlayedRed:
-            self.cellState = SCCellPlayedRed;
-            break;
-        case SCCellJustPlayedBlue:
-            self.cellState = SCCellPlayedBlue;
-        default:
-            break;
+    if (([[[notification userInfo] objectForKey:@"Player"] unsignedIntegerValue] == SCRedPlayer && _cellOwnership == SCCellRed) ||
+        ([[[notification userInfo] objectForKey:@"Player"] unsignedIntegerValue] == SCBluePlayer && _cellOwnership == SCCellBlue)) {
+        switch (_cellState) {
+            case SCCellInPlay:
+                self.cellState = SCCellJustPlayed;
+                break;
+            case SCCellJustPlayed:
+                self.cellState = SCCellPlayed;
+                break;
+            default:
+                break;
+        }
     }
 }
 
@@ -139,9 +142,9 @@ float RED_COLOR[4] = {1.0, 0, 0, 1.0};
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGColorRef color;
-    if (_cellState == SCCellPlayedRed || _cellState ==  SCCellInPlayRed | _cellState == SCCellJustPlayedRed) {
+    if (_cellOwnership == SCCellRed) {
         color = [self red];
-    } else if (_cellState == SCCellPlayedBlue || _cellState == SCCellInPlayBlue || _cellState == SCCellJustPlayedBlue) {
+    } else if (_cellOwnership == SCCellBlue) {
         color = [self blue];
     } else {
         color = [self unplayed];
@@ -161,12 +164,12 @@ float RED_COLOR[4] = {1.0, 0, 0, 1.0};
     CGContextSetLineWidth(context, 1);
     CGContextStrokePath(context);
     
-    if (_cellState == SCCellInPlayRed || _cellState == SCCellInPlayBlue) {
+    if (_cellState == SCCellInPlay) {
         CGContextBeginPath(context);
         CGContextSetRGBStrokeColor(context, 1, 1, 1, 1);
         CGContextAddArc(context, self.bounds.size.height/2,self.bounds.size.width/2, self.bounds.size.height/4, 0, 2*M_PI, 0);
         CGContextStrokePath(context);
-    } else if (_cellState == SCCellJustPlayedRed || _cellState == SCCellJustPlayedBlue) {
+    } else if (_cellState == SCCellJustPlayed) {
         CGContextBeginPath(context);
         CGContextSetRGBFillColor(context, 1, 1, 1, 1);
         CGContextAddArc(context, self.bounds.size.height/2,self.bounds.size.width/2, self.bounds.size.height/4, 0, 2*M_PI, 0);
