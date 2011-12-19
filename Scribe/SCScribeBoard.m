@@ -23,13 +23,11 @@ const NSUInteger GRID_SIZE = 3;
 @synthesize lastBluePlayedMiniGrid;
 @synthesize currentlySelectedCell;
 @synthesize currentlySelectedMiniGrid;
-@synthesize canMoveAnywhere;
 
 - (id)init {
     self = [super init];
     if (self) {
         currentPlayer = SCRedPlayer;
-        canMoveAnywhere = YES;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchPlayers:) name:SCCellPlayedNotification object:nil];
         NSMutableSet * minigrids = [[NSMutableSet alloc] initWithCapacity:9];
         for (XY * xy in [XY allXYs]) {
@@ -46,17 +44,11 @@ const NSUInteger GRID_SIZE = 3;
         lastRedPlayedCell = currentlySelectedCell;
         lastRedPlayedMiniGrid = currentlySelectedMiniGrid;
         currentPlayer = SCBluePlayer;
-        if ([self availablePositionsAtXY:lastBluePlayedCell]) {
-            canMoveAnywhere = YES;
-        }
     } else {
         [currentlySelectedMiniGrid addOwnership:SCCellBlue at:currentlySelectedCell];
         lastBluePlayedCell = currentlySelectedCell;
         lastBluePlayedMiniGrid = currentlySelectedMiniGrid;
         currentPlayer = SCRedPlayer;
-        if ([self availablePositionsAtXY:lastRedPlayedCell]) {
-            canMoveAnywhere = YES;
-        }
     }
     currentlySelectedCell = nil;
     currentlySelectedMiniGrid = nil;
@@ -81,6 +73,10 @@ const NSUInteger GRID_SIZE = 3;
             return YES;
     }
     return NO;
+}
+
+- (BOOL)canMoveAnywhere {
+    return ![self availablePositionsAtXY:currentPlayer == SCRedPlayer ? lastRedPlayedCell : lastBluePlayedCell];
 }
 
 @end
