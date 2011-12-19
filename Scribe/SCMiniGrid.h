@@ -18,11 +18,14 @@ static NSString * SCCellPlayedNotification = @"SCCellPlayedNotification";
 @interface SCMiniGrid : NSObject {
     XY * positionInGrid;
     SCScribeBoard * scribeBoard;
+    NSMutableDictionary * cellOwnerships;
 }
 
 @property (readonly) XY * positionInGrid;
 
 - (id)initWithPosition:(XY *)position onBoard:(SCScribeBoard *)board;
 - (void)cellTapped:(SCCellView *)cell;
+- (void)addOwnership:(NSUInteger)ownership at:(XY *)xy;
+- (BOOL)cellOwned:(XY *)xy;
 
 @end

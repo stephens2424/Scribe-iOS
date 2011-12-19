@@ -43,4 +43,15 @@ const NSUInteger MINI_GRID_SIZE = 3;
     cell.cellState = SCCellInPlay;
 }
 
+- (void)addOwnership:(NSUInteger)ownership at:(XY *)xy {
+    [cellOwnerships setObject:[NSNumber numberWithUnsignedInteger:ownership] forKey:[xy description]];
+}
+
+- (BOOL)cellOwned:(XY *)xy {
+    if ([cellOwnerships objectForKey:[xy description]] && [[cellOwnerships objectForKey:[xy description]] unsignedIntegerValue] != SCCellUnowned)
+        return YES;
+    else
+        return NO;
+}
+
 @end

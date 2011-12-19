@@ -26,6 +26,7 @@ typedef enum {
     XY * lastBluePlayedCell;
     SCMiniGrid * currentlySelectedMiniGrid;
     XY * currentlySelectedCell;
+    BOOL canMoveAnywhere;
 }
 
 @property (readonly) SCPlayer currentPlayer;
@@ -36,7 +37,9 @@ typedef enum {
 @property (retain) XY * lastBluePlayedCell;
 @property (retain) SCMiniGrid * currentlySelectedMiniGrid;
 @property (retain) XY * currentlySelectedCell;
+@property (assign) BOOL canMoveAnywhere;
 
 - (SCMiniGrid *)miniGridAt:(XY *)xy;
+- (BOOL)availablePositionsAtXY:(XY *)xy;
 
 @end

@@ -9,6 +9,7 @@
 #import "SCScribeBoard.h"
 #import "SCMiniGrid.h"
 #import "XY.h"
+#import "SCCellView.h"
 
 const NSUInteger GRID_SIZE = 3;
 
@@ -22,11 +23,13 @@ const NSUInteger GRID_SIZE = 3;
 @synthesize lastBluePlayedMiniGrid;
 @synthesize currentlySelectedCell;
 @synthesize currentlySelectedMiniGrid;
+@synthesize canMoveAnywhere;
 
 - (id)init {
     self = [super init];
     if (self) {
         currentPlayer = SCRedPlayer;
+        canMoveAnywhere = YES;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchPlayers:) name:SCCellPlayedNotification object:nil];
         NSMutableSet * minigrids = [[NSMutableSet alloc] initWithCapacity:9];
         for (XY * xy in [XY allXYs]) {
@@ -39,13 +42,21 @@ const NSUInteger GRID_SIZE = 3;
 
 - (void)switchPlayers:(NSNotification *)notification {
     if (currentPlayer == SCRedPlayer) {
+        [currentlySelectedMiniGrid addOwnership:SCCellRed at:currentlySelectedCell];
         lastRedPlayedCell = currentlySelectedCell;
         lastRedPlayedMiniGrid = currentlySelectedMiniGrid;
         currentPlayer = SCBluePlayer;
+        if ([self availablePositionsAtXY:lastBluePlayedCell]) {
+            canMoveAnywhere = YES;
+        }
     } else {
+        [currentlySelectedMiniGrid addOwnership:SCCellBlue at:currentlySelectedCell];
         lastBluePlayedCell = currentlySelectedCell;
         lastBluePlayedMiniGrid = currentlySelectedMiniGrid;
         currentPlayer = SCRedPlayer;
+        if ([self availablePositionsAtXY:lastRedPlayedCell]) {
+            canMoveAnywhere = YES;
+        }
     }
     currentlySelectedCell = nil;
     currentlySelectedMiniGrid = nil;
@@ -62,6 +73,14 @@ const NSUInteger GRID_SIZE = 3;
         }
     };
     return [[miniGrids objectsPassingTest:test] anyObject];
+}
+
+- (BOOL)availablePositionsAtXY:(XY *)xy {
+    for (SCMiniGrid * miniGrid in miniGrids) {
+        if (![miniGrid cellOwned:xy])
+            return YES;
+    }
+    return NO;
 }
 
 @end
