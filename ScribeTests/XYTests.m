@@ -38,4 +38,15 @@
     STAssertTrue([center isAdjacent:middleRight], @"2,1 and 1,1 should be adjacent.");
 }
 
+- (void)testNeighbors {
+    NSUInteger topRight = [[[[XY alloc] initWithX:2 Y:0] neighbors] count];
+    NSUInteger middleRight = [[[[XY alloc] initWithX:2 Y:1] neighbors] count];
+    NSUInteger center = [[[[XY alloc] initWithX:1 Y:1] neighbors] count];
+    NSUInteger bottomLeft = [[[[XY alloc] initWithX:0 Y:2] neighbors] count];
+    STAssertEqualsWithAccuracy(topRight, (NSUInteger) 2, 0, @"Top right should have 2 neighbors.");
+    STAssertEqualsWithAccuracy(middleRight, (NSUInteger) 3, 0, @"Middle right should have 3 neighbors.");
+    STAssertEqualsWithAccuracy(center, (NSUInteger) 4, 0, @"Center should have 4 neighbors.");
+    STAssertEqualsWithAccuracy(bottomLeft, (NSUInteger) 2, 0, @"Bottom left should have 2 neighbors.");
+}
+
 @end

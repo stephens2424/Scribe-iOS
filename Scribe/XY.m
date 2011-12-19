@@ -48,6 +48,18 @@
         return NO;
 }
 
+- (NSSet *)neighbors {
+    NSMutableSet * set = [[NSMutableSet alloc] initWithCapacity:3];
+    for (int dx = -1; dx <= 1; dx++) {
+        for (int dy = -1; dy <= 1; dy++) {
+            if (!(dx == 0 && dy == 0) && (dx == 0 || dy == 0) && _x + dx < 3 && _y + dy < 3) {
+                [set addObject:[[XY alloc] initWithX:_x + dx Y:_y + dy]];
+            }
+        }
+    }
+    return set;
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"%u,%u",_x,_y];
 }
