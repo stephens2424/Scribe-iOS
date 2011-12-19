@@ -28,4 +28,14 @@
     STAssertEqualsWithAccuracy(yTotal, trueXYs, 0, @"Incorrect Y coordinates. Should be 0, 1, and 2.");
 }
 
+- (void)testAdjacency {
+    XY * topRight = [[XY alloc] initWithX:2 Y:0];
+    XY * middleRight = [[XY alloc] initWithX:2 Y:1];
+    XY * center = [[XY alloc] initWithX:1 Y:1];
+    XY * bottomLeft = [[XY alloc] initWithX:0 Y:2];
+    STAssertTrue([topRight isAdjacent:middleRight], @"2,0 and 2,1 should be adjacent.");
+    STAssertFalse([topRight isAdjacent:bottomLeft], @"2,0 and 0,2 should not be adjacent.");
+    STAssertTrue([center isAdjacent:middleRight], @"2,1 and 1,1 should be adjacent.");
+}
+
 @end

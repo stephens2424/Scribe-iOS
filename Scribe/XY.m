@@ -39,6 +39,15 @@
         return NO;
 }
 
+- (BOOL)isAdjacent:(XY *)xy {
+    if (abs(_x - xy.x) == 1 && _y == xy.y)
+        return YES;
+    else if (_x == xy.x && abs(_y - xy.y) == 1)
+        return YES;
+    else
+        return NO;
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"%u,%u",_x,_y];
 }
