@@ -26,12 +26,28 @@ const NSUInteger MINI_GRID_SIZE = 3;
     return self;
 }
 
+- (BOOL)legalBlueMove:(XY *)move {
+    if (
+        scribeBoard.currentPlayer == SCBluePlayer && 
+        ([scribeBoard.lastBluePlayedCell isEqual:move] || scribeBoard.lastBluePlayedCell == nil)) 
+        return YES;
+    else
+        return NO;
+}
+
+- (BOOL)legalRedMove:(XY *)move {
+    if (
+        scribeBoard.currentPlayer == SCRedPlayer && 
+        ([scribeBoard.lastRedPlayedCell isEqual:move] || scribeBoard.lastRedPlayedCell == nil))
+        return YES;
+    else
+        return NO;
+}
+
 - (void)cellTapped:(NSNotification *)notification {
     SCCellView * cell = [notification object];
-    if (((scribeBoard.currentPlayer == SCBluePlayer  && [scribeBoard.lastBluePlayedCell isEqual:cell.positionInMiniGrid]) ||
-          (scribeBoard.currentPlayer == SCRedPlayer   && [scribeBoard.lastRedPlayedCell isEqual:cell.positionInMiniGrid])) ||
-         [scribeBoard canMoveAnywhere]
-         ) return;
+    if (![self legalBlueMove:positionInGrid] && ![self legalRedMove:positionInGrid] && ![scribeBoard canMoveAnywhere]) return;
+    
     if (cell.cellState != SCCellUnplayed) return;
     [[NSNotificationCenter defaultCenter] postNotificationName:SCCellSelectedNotification object:cell];
     scribeBoard.currentlySelectedMiniGrid = self;
