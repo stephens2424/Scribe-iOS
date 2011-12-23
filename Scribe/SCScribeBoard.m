@@ -77,7 +77,9 @@ const NSUInteger GRID_SIZE = 3;
 }
 
 - (BOOL)canMoveAnywhere {
-    return ![self availablePositionsAtXY:currentPlayer == SCRedPlayer ? lastRedPlayedCell : lastBluePlayedCell];
+    if (currentPlayer == SCRedPlayer && lastRedPlayedCell == nil) return YES;
+    if (currentPlayer == SCBluePlayer && lastBluePlayedCell == nil) return YES;
+    return ![[self miniGridAt:currentPlayer == SCRedPlayer ? lastRedPlayedCell : lastBluePlayedCell] availablePosition];
 }
 
 @end

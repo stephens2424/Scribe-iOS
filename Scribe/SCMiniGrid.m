@@ -71,4 +71,11 @@ const NSUInteger MINI_GRID_SIZE = 3;
         return NO;
 }
 
+- (BOOL)availablePosition {
+    for (XY * xy in [XY allXYs]) {
+        if (![self cellOwned:xy]) return YES;
+    }
+    return NO;
+}
+
 @end
