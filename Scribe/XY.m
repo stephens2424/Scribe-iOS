@@ -8,6 +8,8 @@
 
 #import "XY.h"
 
+static NSMutableDictionary * allTheXYx;
+
 @implementation XY
 
 @synthesize x = _x;
@@ -24,12 +26,19 @@
 }
 
 - (id)initWithX:(NSUInteger)x Y:(NSUInteger)y {
-    self = [super init];
-    if (self) {
-        _x = x;
-        _y = y;
+    NSString * key = [NSString stringWithFormat:@"%u,%u",x,y];
+    XY * xy = [allTheXYx objectForKey:key];
+    if (!xy) {
+        self = [super init];
+        if (self) {
+            _x = x;
+            _y = y;
+        }
+        [allTheXYx setObject:self forKey:key];
+        return self;
+    } else {
+        return xy;
     }
-    return self;
 }
 
 - (BOOL)isEqual:(XY *)object {
