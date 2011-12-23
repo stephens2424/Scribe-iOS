@@ -9,6 +9,7 @@
 #import "SCMiniGridView.h"
 #import "SCCellView.h"
 #import "SCMiniGrid.h"
+#import "SCScribeBoard.h"
 #import "XY.h"
 
 const NSUInteger MINI_GRID_PADDING = 2;
@@ -16,6 +17,7 @@ const NSUInteger MINI_GRID_PADDING = 2;
 @implementation SCMiniGridView
 
 @synthesize expandedFrame;
+@synthesize cellShade = _shade;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -36,6 +38,7 @@ const NSUInteger MINI_GRID_PADDING = 2;
     self = [self initWithFrame:frame];
     CGFloat cellWidth = frame.size.width/3 - MINI_GRID_PADDING;
     CGFloat cellHeight = frame.size.height/3 - MINI_GRID_PADDING;
+    _miniGrid = miniGrid;
     
     for (int x = 0; x < MINI_GRID_SIZE; x++) {
         for (int y = 0; y < MINI_GRID_SIZE; y++) {
@@ -46,7 +49,33 @@ const NSUInteger MINI_GRID_PADDING = 2;
             [[NSNotificationCenter defaultCenter] addObserver:miniGrid selector:@selector(cellTapped:) name:SCCellTappedNotification object:cellView];
         }
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playersSwitched:) name:SCPlayersSwitchedNotification object:nil];
     return self;
+}
+
+- (void)playersSwitched:(NSNotification *)notification {
+    SCScribeBoard * board = [notification object];
+    if (board.currentPlayer == SCRedPlayer) {
+        if ([_miniGrid.positionInGrid isEqual:board.lastRedPlayedCell] || [board canMoveAnywhere]) {
+            self.cellShade = NO;
+        } else {
+            self.cellShade = YES;
+        }
+    } else {
+        if ([_miniGrid.positionInGrid isEqual:board.lastBluePlayedCell] || [board canMoveAnywhere]) {
+            self.cellShade = NO;
+        } else {
+            self.cellShade = YES;
+        }
+    }
+}
+
+- (void)setCellShade:(BOOL)shade {
+    for (SCCellView * cell in self.subviews) {
+        cell.cellShade = shade;
+        [cell setNeedsDisplay];
+    }
 }
 
 - (void)setExpandedFrame:(CGRect)frame {

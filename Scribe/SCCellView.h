@@ -28,6 +28,7 @@ typedef enum {
     CGAffineTransform * _transformToSmall;
     CGColorRef _red;
     CGColorRef _blue;
+    CGColorRef _overlayColor;
     CGColorRef _unplayed;
     CGColorSpaceRef _colorSpace;
     UIGestureRecognizer * recognizer;
@@ -35,12 +36,14 @@ typedef enum {
     SCCellOwnership _cellOwnership;
     XY * xy;
     BOOL _listenForTaps;
+    BOOL _shade;
 }
 
 @property (retain) XY * positionInMiniGrid;
 @property (nonatomic,assign) BOOL listenForTaps;
 @property (nonatomic,assign) SCCellState cellState;
 @property (nonatomic,assign) SCCellOwnership cellOwnership;
+@property (nonatomic,assign) BOOL cellShade;
 
 - (CGAffineTransform *)transformToSmall;
 - (CGColorRef)red;

@@ -52,6 +52,7 @@ const NSUInteger GRID_SIZE = 3;
     }
     currentlySelectedCell = nil;
     currentlySelectedMiniGrid = nil;
+    [[NSNotificationCenter defaultCenter] postNotificationName:SCPlayersSwitchedNotification object:self];
 }
 
 - (SCMiniGrid *)miniGridAt:(XY *)xy {

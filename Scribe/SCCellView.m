@@ -15,6 +15,7 @@
 float UNPLAYED_COLOR[4] = {0.8, 0.8, 0.8, 0.8};
 float BLUE_COLOR[4] = {0.0, 0.0, 1.0, 1.0};
 float RED_COLOR[4] = {1.0, 0, 0, 1.0};
+float OVERLAY_COLOR[4] = {0.0, 0.0, 0.0, 0.2};
 
 @implementation SCCellView
 
@@ -22,6 +23,7 @@ float RED_COLOR[4] = {1.0, 0, 0, 1.0};
 @synthesize listenForTaps = _listenForTaps;
 @synthesize cellState = _cellState;
 @synthesize cellOwnership = _cellOwnership;
+@synthesize cellShade = _shade;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -127,6 +129,12 @@ float RED_COLOR[4] = {1.0, 0, 0, 1.0};
     }
     return _blue;
 }
+- (CGColorRef)overlayColor {
+    if (!_overlayColor) {
+        _overlayColor = CGColorCreate([self colorSpace], OVERLAY_COLOR);
+    }
+    return _overlayColor;
+}
 - (CGColorSpaceRef)colorSpace {
     if (!_colorSpace) {
         _colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -155,6 +163,13 @@ float RED_COLOR[4] = {1.0, 0, 0, 1.0};
     CGPathRef roundedRect = [self roundedRect:rect radius:self.bounds.size.height/5];
     CGContextAddPath(context, roundedRect);
     CGContextFillPath(context);
+    
+    if (_shade) {
+        CGContextSetFillColorWithColor(context, [self overlayColor]);
+        CGContextBeginPath(context);
+        CGContextAddPath(context, roundedRect);
+        CGContextFillPath(context);
+    }
     
     CGContextBeginPath(context);
     CGContextSetLineJoin(context, kCGLineJoinRound);

@@ -16,9 +16,11 @@
     CGRect expandedFrame;
     UITapGestureRecognizer * gestureRecognizer;
     SCMiniGrid * _miniGrid;
+    BOOL _shade;
 }
 
 @property (nonatomic,assign) CGRect expandedFrame;
+@property (nonatomic,assign) BOOL cellShade;
 
 - (id)initWithFrame:(CGRect)frame miniGrid:(SCMiniGrid *)miniGrid;
 - (void)reduceFrame;
