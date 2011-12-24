@@ -49,7 +49,8 @@ const NSUInteger MINI_GRID_PADDING = 2;
             [[NSNotificationCenter defaultCenter] addObserver:miniGrid selector:@selector(cellTapped:) name:SCCellTappedNotification object:cellView];
         }
     }
-    
+    gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(expandToFrame)];
+    self.cellShade = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playersSwitched:) name:SCPlayersSwitchedNotification object:nil];
     return self;
 }
@@ -76,12 +77,11 @@ const NSUInteger MINI_GRID_PADDING = 2;
         cell.cellShade = shade;
         [cell setNeedsDisplay];
     }
-}
-
-- (void)setExpandedFrame:(CGRect)frame {
-    expandedFrame = frame;
-    gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(expandToFrame)];
-    [self addGestureRecognizer:gestureRecognizer];
+    if (shade) {
+        [self removeGestureRecognizer:gestureRecognizer];
+    } else {
+        [self addGestureRecognizer:gestureRecognizer];
+    }
 }
 
 - (void)reduceFrame {
