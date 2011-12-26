@@ -14,6 +14,7 @@ extern const NSUInteger GRID_SIZE;
 static NSString * SCPlayersSwitchedNotification = @"SCPlayersSwitchedNotification";
 
 typedef enum {
+    SCNoPlayer,
     SCRedPlayer,
     SCBluePlayer
 } SCPlayer;

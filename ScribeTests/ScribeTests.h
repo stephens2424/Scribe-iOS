@@ -11,6 +11,7 @@
 
 @interface ScribeTests : SenTestCase {
     SCScribeBoard * testSubject;
+    NSArray * testGrids;
 }
 
 @end

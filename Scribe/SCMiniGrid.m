@@ -26,6 +26,27 @@ const NSUInteger MINI_GRID_SIZE = 3;
     return self;
 }
 
+- (id)initWithTestString:(NSString *)string {
+    self = [self initWithPosition:nil onBoard:nil];
+    NSUInteger row = 0;
+    NSUInteger cell = 0;
+    while ([string length] > 0) {
+        NSString * current = [string substringToIndex:1];
+        string = [string substringFromIndex:1];
+        if ([current isEqualToString:@"+"]) {
+            [self addOwnership:SCBluePlayer at:[[XY alloc] initWithX:cell Y:row]];
+            cell += 1;
+        } else if ([current isEqualToString:@"O"]) {
+            [self addOwnership:SCRedPlayer at:[[XY alloc] initWithX:cell Y:row]];
+            cell += 1;
+        } else {
+            row += 1;
+            cell = 0;
+        }
+    }
+    return self;
+}
+
 - (BOOL)legalBlueMove:(XY *)move {
     if (
         scribeBoard.currentPlayer == SCBluePlayer && 
@@ -60,7 +81,7 @@ const NSUInteger MINI_GRID_SIZE = 3;
     cell.cellState = SCCellInPlay;
 }
 
-- (void)addOwnership:(NSUInteger)ownership at:(XY *)xy {
+- (void)addOwnership:(SCPlayer)ownership at:(XY *)xy {
     [cellOwnerships setObject:[NSNumber numberWithUnsignedInteger:ownership] forKey:[xy description]];
 }
 
@@ -76,6 +97,14 @@ const NSUInteger MINI_GRID_SIZE = 3;
         if (![self cellOwned:xy]) return YES;
     }
     return NO;
+}
+
+- (NSUInteger)regions {
+    return 1;
+}
+
+- (SCPlayer)winner {
+    return SCBluePlayer;
 }
 
 @end

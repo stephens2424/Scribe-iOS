@@ -40,12 +40,12 @@ const NSUInteger GRID_SIZE = 3;
 
 - (void)switchPlayers:(NSNotification *)notification {
     if (currentPlayer == SCRedPlayer) {
-        [currentlySelectedMiniGrid addOwnership:SCCellRed at:currentlySelectedCell];
+        [currentlySelectedMiniGrid addOwnership:SCRedPlayer at:currentlySelectedCell];
         lastRedPlayedCell = currentlySelectedCell;
         lastRedPlayedMiniGrid = currentlySelectedMiniGrid;
         currentPlayer = SCBluePlayer;
     } else {
-        [currentlySelectedMiniGrid addOwnership:SCCellBlue at:currentlySelectedCell];
+        [currentlySelectedMiniGrid addOwnership:SCBluePlayer at:currentlySelectedCell];
         lastBluePlayedCell = currentlySelectedCell;
         lastBluePlayedMiniGrid = currentlySelectedMiniGrid;
         currentPlayer = SCRedPlayer;

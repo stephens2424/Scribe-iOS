@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SCScribeBoard.h"
 @class XY;
 @class SCCellView;
-@class SCScribeBoard;
 
 extern const NSUInteger MINI_GRID_SIZE;
 static NSString * SCCellSelectedNotification = @"SCMoveSelectedNotification";
@@ -24,9 +24,13 @@ static NSString * SCCellPlayedNotification = @"SCCellPlayedNotification";
 @property (readonly) XY * positionInGrid;
 
 - (id)initWithPosition:(XY *)position onBoard:(SCScribeBoard *)board;
+- (id)initWithTestString:(NSString *)string;
 - (void)cellTapped:(SCCellView *)cell;
-- (void)addOwnership:(NSUInteger)ownership at:(XY *)xy;
+- (void)addOwnership:(SCPlayer)ownership at:(XY *)xy;
 - (BOOL)cellOwned:(XY *)xy;
 - (BOOL)availablePosition;
+
+- (NSUInteger)regions;
+- (SCPlayer)winner;
 
 @end
