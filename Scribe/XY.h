@@ -19,6 +19,7 @@
 + (NSSet *)allXYs;
 
 - (id)initWithX:(NSUInteger)x Y:(NSUInteger)y;
+- (id)initWithString:(NSString *)xyString;
 - (BOOL)isAdjacent:(XY *)xy;
 - (NSSet *)neighbors;
 

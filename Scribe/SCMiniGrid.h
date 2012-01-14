@@ -28,7 +28,11 @@ static NSString * SCCellPlayedNotification = @"SCCellPlayedNotification";
 - (void)cellTapped:(SCCellView *)cell;
 - (void)addOwnership:(SCPlayer)ownership at:(XY *)xy;
 - (BOOL)cellOwned:(XY *)xy;
+- (SCPlayer)cellOwnedBy:(XY *)xy;
+- (NSDictionary *)allOwnerships;
 - (BOOL)availablePosition;
+
+- (void)checkRegions:(NSSet *)regions;
 
 - (NSUInteger)regions;
 - (SCPlayer)winner;

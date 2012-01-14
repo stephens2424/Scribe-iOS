@@ -41,6 +41,22 @@ static NSMutableDictionary * allTheXYx;
     }
 }
 
+- (id)initWithString:(NSString *)xyString {
+    NSString * x = [xyString substringToIndex:1];
+    NSString * comma = [xyString substringWithRange:NSMakeRange(1, 1)];
+    NSString * y = [xyString substringFromIndex:2];
+    // TODO: handle exceptions better here
+    if (![comma isEqualToString:@","]) {
+        return nil;
+    } else {
+        return [self initWithX:[x intValue] Y:[y intValue]];
+    }
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+    return [[XY alloc] initWithX:_x Y:_y];
+}
+
 - (BOOL)isEqual:(XY *)object {
     if ([object x] == _x && [object y] == _y)
         return YES;

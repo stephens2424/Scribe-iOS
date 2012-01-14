@@ -9,6 +9,7 @@
 #import "SCMiniGrid.h"
 #import "SCCellView.h"
 #import "SCScribeBoard.h"
+#import "SCRegion.h"
 #import "XY.h"
 
 const NSUInteger MINI_GRID_SIZE = 3;
@@ -22,6 +23,7 @@ const NSUInteger MINI_GRID_SIZE = 3;
     if (self) {
         positionInGrid = position;
         scribeBoard = board;
+        cellOwnerships = [[NSMutableDictionary alloc] initWithCapacity:9];
     }
     return self;
 }
@@ -34,10 +36,12 @@ const NSUInteger MINI_GRID_SIZE = 3;
         NSString * current = [string substringToIndex:1];
         string = [string substringFromIndex:1];
         if ([current isEqualToString:@"+"]) {
-            [self addOwnership:SCBluePlayer at:[[XY alloc] initWithX:cell Y:row]];
+            XY * currentXY = [[XY alloc] initWithX:cell Y:row];
+            [self addOwnership:SCBluePlayer at:currentXY];
             cell += 1;
         } else if ([current isEqualToString:@"O"]) {
-            [self addOwnership:SCRedPlayer at:[[XY alloc] initWithX:cell Y:row]];
+            XY * currentXY = [[XY alloc] initWithX:cell Y:row];
+            [self addOwnership:SCRedPlayer at:currentXY];
             cell += 1;
         } else {
             row += 1;
@@ -82,7 +86,9 @@ const NSUInteger MINI_GRID_SIZE = 3;
 }
 
 - (void)addOwnership:(SCPlayer)ownership at:(XY *)xy {
-    [cellOwnerships setObject:[NSNumber numberWithUnsignedInteger:ownership] forKey:[xy description]];
+    id key = [xy description];
+    id value = [NSNumber numberWithUnsignedInteger:ownership];
+    [cellOwnerships setObject:value forKey:key];
 }
 
 - (BOOL)cellOwned:(XY *)xy {
@@ -90,6 +96,15 @@ const NSUInteger MINI_GRID_SIZE = 3;
         return YES;
     else
         return NO;
+}
+
+- (SCPlayer)cellOwnedBy:(XY *)xy {
+    if ([cellOwnerships objectForKey:[xy description]] && [[cellOwnerships objectForKey:[xy description]] unsignedIntegerValue] == SCRedPlayer)
+        return SCRedPlayer;
+    else if ([cellOwnerships objectForKey:[xy description]] && [[cellOwnerships objectForKey:[xy description]] unsignedIntegerValue] == SCBluePlayer)
+        return SCBluePlayer;
+    else
+        return SCNoPlayer;
 }
 
 - (BOOL)availablePosition {
@@ -100,11 +115,89 @@ const NSUInteger MINI_GRID_SIZE = 3;
 }
 
 - (NSUInteger)regions {
-    return 1;
+    NSLog(@"%@",[self description]);
+    NSMutableSet * regions = [[NSMutableSet alloc] initWithCapacity:9];
+    for (id cell in cellOwnerships) {
+        SCRegion * newRegion = [[SCRegion alloc] initForPlayer:[[cellOwnerships objectForKey:cell] unsignedIntegerValue]];
+        [newRegion addPotentialMember:[[XY alloc] initWithString:cell] forPlayer:[[cellOwnerships objectForKey:cell] unsignedIntegerValue]];
+        [regions addObject:newRegion];
+    }
+    BOOL merged;
+    do {
+        merged = NO;
+        NSMutableSet * newRegions = [[NSMutableSet alloc] initWithCapacity:[regions count]];
+        for (SCRegion * firstRegion in regions) {
+            for (SCRegion * secondRegion in regions) {
+                if (firstRegion != secondRegion && [firstRegion regionsShouldMerge:secondRegion] && !merged) {
+                    SCRegion * combinedRegion = [[SCRegion alloc] initByMergingRegions:firstRegion and:secondRegion];
+                    [newRegions addObject:combinedRegion];
+                    [newRegions unionSet:regions];
+                    [newRegions removeObject:firstRegion];
+                    [newRegions removeObject:secondRegion];
+                    merged = YES;
+                } else if (merged) {
+                    break;
+                }
+            }
+            if (merged) break;
+        }
+        if (merged) {
+            regions = newRegions;
+            [self checkRegions:regions];
+        }
+    } while (merged);
+    return [regions count];
+}
+
+- (void)checkRegions:(NSSet *)regions {
+    NSSet * xys = [XY allXYs];
+    NSMutableArray * rXys = [[NSMutableArray alloc] initWithCapacity:9];
+    for (SCRegion * region in regions) {
+        [rXys addObjectsFromArray:[region.squares allObjects]];
+    }
+    NSUInteger expectedCount = 9;
+    assert([rXys count] == expectedCount);
+    for (id xy in xys) {
+        [rXys removeObject:xy];
+        expectedCount -= 1;
+        assert([rXys count] == expectedCount);
+    }
 }
 
 - (SCPlayer)winner {
     return SCBluePlayer;
+}
+
+- (NSString *)description {
+    NSDictionary * ownerships = [self allOwnerships];
+    NSMutableString * desc = [[NSMutableString alloc] initWithCapacity:13];
+    [desc appendString:@"\n"];
+    for (NSUInteger x = 0; x <= 2; x++) {
+        for (NSUInteger y = 0; y <= 2; y++) {
+            id key = [[XY alloc] initWithX:x Y:y];
+            id current = [ownerships objectForKey:[key description]];
+            if ([current unsignedIntegerValue] == SCBluePlayer)
+                current = @"+";
+            else if ([current unsignedIntegerValue] == SCRedPlayer)
+                current = @"O";
+            else
+                current = @" ";
+            [desc appendFormat:@"%@",current];
+        }
+        [desc appendString:@"\n"];
+    }
+    return desc;
+}
+
+- (NSDictionary *)allOwnerships {
+    NSMutableDictionary * ownerships = [[NSMutableDictionary alloc] initWithCapacity:9];
+    NSSet * xys = [XY allXYs];
+    for (XY * xy in xys) {
+        NSUInteger ownership = [self cellOwnedBy:xy];
+        NSNumber * wOwnership = [NSNumber numberWithUnsignedInteger:ownership];
+        [ownerships setObject:wOwnership forKey:[xy description]];
+    }
+    return ownerships;
 }
 
 @end
