@@ -1,0 +1,78 @@
+[
+    {
+        "name": "Single",
+        "regionCoordinates": ["0,0"]
+    },
+    {
+        "name": "Double",
+        "regionCoordinates": ["0,0","0,1"]
+    },
+    {
+        "name": "Line",
+        "regionCoordinates": ["0,0","0,1","0,2"]
+    },
+    {
+        "name": "Pipe",
+        "regionCoordinates": ["0,2","1,0","1,1","1,2"]
+    },
+    {
+        "name": "Squat-T",
+        "regionCoordinates": ["0,0","0,1","0,2","1,1"]
+    },
+    {
+        "name": "4-block",
+        "regionCoordinates": ["0,0","0,1","1,0","1,1"]
+    },
+    {
+        "name": "T",
+        "regionCoordinates": ["0,0","0,1","0,2","1,1","2,1"]
+    },
+    {
+        "name": "Cross",
+        "regionCoordinates": ["0,1","1,0","1,1","1,2","2,1"]
+    },
+    {
+        "name": "6-block",
+        "regionCoordinates": ["0,0","0,1","0,2","1,0","1,1","1,2"]
+    },
+    {
+        "name": "Bomber",
+        "regionCoordinates": ["0,0","0,1","0,2","1,1","1,2","2,2"]
+    },
+    {
+        "name": "Chair",
+        "regionCoordinates": ["0,2","1,0","1,1","1,2"]
+    },
+    {
+        "name": "J",
+        "regionCoordinates": ["0,2","1,0","1,2","2,0","2,1","2,2"]
+    },
+    {
+        "name": "Earring",
+        "regionCoordinates": ["0,1","0,2","1,0","1,2","2,0","2,1","2,2"]
+    },
+    {
+        "name": "House",
+        "regionCoordinates": ["0,1","1,0","1,1","1,2","2,0","2,1","2,2"]
+    },
+    {
+        "name": "H",
+        "regionCoordinates": ["0,0","0,2","1,0","1,1","1,2","2,0","2,2"]
+    },
+    {
+        "name": "U",
+        "regionCoordinates": ["0,0","0,2","1,0","1,2","2,0","2,1","2,2"]
+    },
+    {
+        "name": "Ottoman",
+        "regionCoordinates": ["0,0","0,1","0,2","1,0","1,1","1,2","2,0","2,2"]
+    },
+    {
+        "name": "O",
+        "regionCoordinates": ["0,0","0,1","0,2","1,0","1,2","2,0","2,1","2,2"]
+    },
+    {
+        "name": "9-block",
+        "regionCoordinates": ["0,0","0,1","0,2","1,0","1,1","1,2","2,0","2,1","2,2"]
+    }
+]
