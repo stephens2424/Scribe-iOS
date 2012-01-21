@@ -13,6 +13,9 @@
 @interface SCRegion : NSObject {
     NSMutableSet * squares;
     SCPlayer _player;
+    
+    @private
+    SCRegion * normalized;
 }
 
 @property (readonly) NSSet * squares;
@@ -20,7 +23,9 @@
 
 - (id)initForPlayer:(SCPlayer)player;
 - (id)initByMergingRegions:(SCRegion *)regionOne and:(SCRegion *)regionTwo;
+- (id)initWithSquares:(NSSet *)set forPlayer:(SCPlayer)player;
 - (BOOL)addPotentialMember:(XY *)xy forPlayer:(SCPlayer)player;
 - (BOOL)regionsShouldMerge:(SCRegion *)otherRegion;
+- (BOOL)isGlyph;
 
 @end
