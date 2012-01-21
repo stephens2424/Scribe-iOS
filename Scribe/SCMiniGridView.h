@@ -11,6 +11,8 @@
 @class SCScribeBoard;
 @class XY;
 
+const NSUInteger MINI_GRID_PADDING;
+
 @interface SCMiniGridView : UIView {
     CGRect originalFrame;
     CGRect expandedFrame;

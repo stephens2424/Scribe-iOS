@@ -15,6 +15,7 @@ static NSString * SCPlayersSwitchedNotification = @"SCPlayersSwitchedNotificatio
 
 typedef enum {
     SCNoPlayer,
+    SCInformationPlayer,
     SCRedPlayer,
     SCBluePlayer
 } SCPlayer;
