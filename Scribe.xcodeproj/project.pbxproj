@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DC0B3582149E8C4C00A200F4 /* XYTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0B3581149E8C4C00A200F4 /* XYTests.m */; };
+		DC37E58814C37945009504EE /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DC37E58514C37945009504EE /* JSONKit.m */; };
 		DC6CEA751499147400F28D3B /* XY.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6CEA741499147400F28D3B /* XY.m */; };
 		DC7A1C5714B1362E00B00811 /* SCRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7A1C5614B1362E00B00811 /* SCRegion.m */; };
 		DCC8EFED149883BB0007ABB6 /* SCCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC8EFEC149883BB0007ABB6 /* SCCellView.m */; };
@@ -45,6 +46,8 @@
 /* Begin PBXFileReference section */
 		DC0B3580149E8C4C00A200F4 /* XYTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTests.h; sourceTree = "<group>"; };
 		DC0B3581149E8C4C00A200F4 /* XYTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTests.m; sourceTree = "<group>"; };
+		DC37E58414C37945009504EE /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		DC37E58514C37945009504EE /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		DC6CEA731499147400F28D3B /* XY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XY.h; sourceTree = "<group>"; };
 		DC6CEA741499147400F28D3B /* XY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XY.m; sourceTree = "<group>"; };
 		DC7A1C5514B1362E00B00811 /* SCRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRegion.h; sourceTree = "<group>"; };
@@ -107,6 +110,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC37E58214C37945009504EE /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				DC37E58314C37945009504EE /* CHANGELOG.md */,
+				DC37E58414C37945009504EE /* JSONKit.h */,
+				DC37E58514C37945009504EE /* JSONKit.m */,
+				DC37E58614C37945009504EE /* README.md */,
+			);
+			path = JSONKit;
+			sourceTree = SOURCE_ROOT;
+		};
 		DCC8EFF5149888BE0007ABB6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				DCD128B61495DF7300E75E15 /* README.md */,
+				DC37E58214C37945009504EE /* JSONKit */,
 				DCD128821495D53F00E75E15 /* Scribe */,
 				DCD128A01495D53F00E75E15 /* ScribeTests */,
 				DCD1287B1495D53F00E75E15 /* Frameworks */,
@@ -325,6 +340,7 @@
 				DCC8EFFB14988C110007ABB6 /* SCMiniGrid.m in Sources */,
 				DC6CEA751499147400F28D3B /* XY.m in Sources */,
 				DC7A1C5714B1362E00B00811 /* SCRegion.m in Sources */,
+				DC37E58814C37945009504EE /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +396,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -405,7 +421,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
