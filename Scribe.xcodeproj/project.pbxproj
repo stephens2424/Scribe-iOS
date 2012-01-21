@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		DC0B3582149E8C4C00A200F4 /* XYTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0B3581149E8C4C00A200F4 /* XYTests.m */; };
+		DC37E57414C35745009504EE /* Glyphs.json in Resources */ = {isa = PBXBuildFile; fileRef = DC37E57314C35745009504EE /* Glyphs.json */; };
+		DC37E57814C36577009504EE /* GlyphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC37E57714C36577009504EE /* GlyphViewController.m */; };
+		DC37E57B14C36610009504EE /* SCGlyphView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC37E57A14C36610009504EE /* SCGlyphView.m */; };
+		DC37E58114C36CA5009504EE /* SCGlyphs.m in Sources */ = {isa = PBXBuildFile; fileRef = DC37E58014C36CA5009504EE /* SCGlyphs.m */; };
 		DC37E58814C37945009504EE /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DC37E58514C37945009504EE /* JSONKit.m */; };
 		DC6CEA751499147400F28D3B /* XY.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6CEA741499147400F28D3B /* XY.m */; };
 		DC7A1C5714B1362E00B00811 /* SCRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7A1C5614B1362E00B00811 /* SCRegion.m */; };
@@ -46,8 +50,17 @@
 /* Begin PBXFileReference section */
 		DC0B3580149E8C4C00A200F4 /* XYTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTests.h; sourceTree = "<group>"; };
 		DC0B3581149E8C4C00A200F4 /* XYTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTests.m; sourceTree = "<group>"; };
+		DC37E57314C35745009504EE /* Glyphs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Glyphs.json; sourceTree = "<group>"; };
+		DC37E57614C36577009504EE /* GlyphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlyphViewController.h; sourceTree = "<group>"; };
+		DC37E57714C36577009504EE /* GlyphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlyphViewController.m; sourceTree = "<group>"; };
+		DC37E57914C36610009504EE /* SCGlyphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGlyphView.h; sourceTree = "<group>"; };
+		DC37E57A14C36610009504EE /* SCGlyphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGlyphView.m; sourceTree = "<group>"; };
+		DC37E57F14C36CA5009504EE /* SCGlyphs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGlyphs.h; sourceTree = "<group>"; };
+		DC37E58014C36CA5009504EE /* SCGlyphs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGlyphs.m; sourceTree = "<group>"; };
+		DC37E58314C37945009504EE /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
 		DC37E58414C37945009504EE /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		DC37E58514C37945009504EE /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		DC37E58614C37945009504EE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		DC6CEA731499147400F28D3B /* XY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XY.h; sourceTree = "<group>"; };
 		DC6CEA741499147400F28D3B /* XY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XY.m; sourceTree = "<group>"; };
 		DC7A1C5514B1362E00B00811 /* SCRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRegion.h; sourceTree = "<group>"; };
@@ -124,6 +137,8 @@
 		DCC8EFF5149888BE0007ABB6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DC37E57F14C36CA5009504EE /* SCGlyphs.h */,
+				DC37E58014C36CA5009504EE /* SCGlyphs.m */,
 				DCC8EFF914988C110007ABB6 /* SCMiniGrid.h */,
 				DCC8EFFA14988C110007ABB6 /* SCMiniGrid.m */,
 				DC7A1C5514B1362E00B00811 /* SCRegion.h */,
@@ -175,6 +190,10 @@
 				DCD1288B1495D53F00E75E15 /* SCAppDelegate.h */,
 				DCD1288C1495D53F00E75E15 /* SCAppDelegate.m */,
 				DCD1288E1495D53F00E75E15 /* MainStoryboard.storyboard */,
+				DC37E57614C36577009504EE /* GlyphViewController.h */,
+				DC37E57714C36577009504EE /* GlyphViewController.m */,
+				DC37E57914C36610009504EE /* SCGlyphView.h */,
+				DC37E57A14C36610009504EE /* SCGlyphView.m */,
 				DCD128BB1497288C00E75E15 /* SCGameBoardView.h */,
 				DCD128BC1497288C00E75E15 /* SCGameBoardView.m */,
 				DCC8EFEB149883BB0007ABB6 /* SCCellView.h */,
@@ -197,6 +216,7 @@
 				DCD128851495D53F00E75E15 /* InfoPlist.strings */,
 				DCD128881495D53F00E75E15 /* main.m */,
 				DCD1288A1495D53F00E75E15 /* Scribe-Prefix.pch */,
+				DC37E57314C35745009504EE /* Glyphs.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -295,6 +315,7 @@
 				DCD128871495D53F00E75E15 /* InfoPlist.strings in Resources */,
 				DCD128901495D53F00E75E15 /* MainStoryboard.storyboard in Resources */,
 				DCD128B71495DF7300E75E15 /* README.md in Resources */,
+				DC37E57414C35745009504EE /* Glyphs.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +361,9 @@
 				DCC8EFFB14988C110007ABB6 /* SCMiniGrid.m in Sources */,
 				DC6CEA751499147400F28D3B /* XY.m in Sources */,
 				DC7A1C5714B1362E00B00811 /* SCRegion.m in Sources */,
+				DC37E57814C36577009504EE /* GlyphViewController.m in Sources */,
+				DC37E57B14C36610009504EE /* SCGlyphView.m in Sources */,
+				DC37E58114C36CA5009504EE /* SCGlyphs.m in Sources */,
 				DC37E58814C37945009504EE /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
