@@ -114,7 +114,7 @@ const NSUInteger MINI_GRID_SIZE = 3;
     return NO;
 }
 
-- (NSUInteger)regions {
+- (NSSet *)regions {
     NSLog(@"%@",[self description]);
     NSMutableSet * regions = [[NSMutableSet alloc] initWithCapacity:9];
     for (id cell in cellOwnerships) {
@@ -146,7 +146,7 @@ const NSUInteger MINI_GRID_SIZE = 3;
             [self checkRegions:regions];
         }
     } while (merged);
-    return [regions count];
+    return regions;
 }
 
 - (void)checkRegions:(NSSet *)regions {
@@ -165,7 +165,25 @@ const NSUInteger MINI_GRID_SIZE = 3;
 }
 
 - (SCPlayer)winner {
-    return SCBluePlayer;
+    NSUInteger blueGlyphs = 0;
+    NSUInteger redGlyphs = 0;
+    for (SCRegion * region in [self regions]) {
+        if ([region isGlyph]) {
+            if (region.player == SCBluePlayer) {
+                blueGlyphs += [region.squares count];
+            }
+            else if (region.player == SCRedPlayer) {
+                redGlyphs += [region.squares count];
+            }
+        }
+    }
+    if (blueGlyphs > redGlyphs) {
+        return SCBluePlayer;
+    }
+    else if (redGlyphs < blueGlyphs) {
+        return SCRedPlayer;
+    }
+    else return SCNoPlayer;
 }
 
 - (NSString *)description {
@@ -187,6 +205,26 @@ const NSUInteger MINI_GRID_SIZE = 3;
         [desc appendString:@"\n"];
     }
     return desc;
+}
+
+- (void)printRegions:(NSSet *)regions {
+    NSArray * regionArray = [regions allObjects];
+    NSMutableString * desc = [[NSMutableString alloc] initWithCapacity:13];
+    [desc appendString:@"\n"];
+    for (NSUInteger x = 0; x <= 2; x++) {
+        for (NSUInteger y = 0; y <= 2; y++) {
+            NSString * key = [[[XY alloc] initWithX:x Y:y] description];
+            NSString * current = @" ";
+            for (SCRegion * region in regionArray) {
+                if ([region.squares containsObject:key]) {
+                    current = [NSString stringWithFormat:@"%u",[regionArray indexOfObject:region]];
+                }
+            }
+            [desc appendFormat:@"%@",current];
+        }
+        [desc appendString:@"\n"];
+    }
+    NSLog(@"%@",desc);
 }
 
 - (NSDictionary *)allOwnerships {

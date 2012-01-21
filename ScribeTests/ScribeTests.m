@@ -136,7 +136,7 @@
     
     for (NSArray * miniGridTest in testGrids) {
         SCMiniGrid * miniGrid = [[SCMiniGrid alloc] initWithTestString:[miniGridTest objectAtIndex:0]];
-        STAssertEquals([miniGrid regions],
+        STAssertEquals([[miniGrid regions] count],
                        [[miniGridTest objectAtIndex:1] unsignedIntegerValue],
                        [NSString stringWithFormat:@"%@ has incorrect number of regions",[miniGridTest objectAtIndex:0]]);
         STAssertEquals((NSUInteger) [miniGrid winner],

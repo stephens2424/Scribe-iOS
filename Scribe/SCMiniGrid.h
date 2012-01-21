@@ -32,9 +32,10 @@ static NSString * SCCellPlayedNotification = @"SCCellPlayedNotification";
 - (NSDictionary *)allOwnerships;
 - (BOOL)availablePosition;
 
+- (void)printRegions:(NSSet *)regions;
 - (void)checkRegions:(NSSet *)regions;
 
-- (NSUInteger)regions;
+- (NSSet *)regions;
 - (SCPlayer)winner;
 
 @end
