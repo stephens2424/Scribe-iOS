@@ -25,6 +25,7 @@
 - (id)initByMergingRegions:(SCRegion *)regionOne and:(SCRegion *)regionTwo;
 - (id)initWithSquares:(NSSet *)set forPlayer:(SCPlayer)player;
 - (BOOL)addPotentialMember:(XY *)xy forPlayer:(SCPlayer)player;
+- (BOOL)isPotentialMember:(XY *)xy forPlayer:(SCPlayer)player;
 - (BOOL)regionsShouldMerge:(SCRegion *)otherRegion;
 - (BOOL)isGlyph;
 

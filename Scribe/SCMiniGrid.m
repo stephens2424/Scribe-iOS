@@ -122,6 +122,11 @@ const NSUInteger MINI_GRID_SIZE = 3;
         [newRegion addPotentialMember:[[XY alloc] initWithString:cell] forPlayer:[[cellOwnerships objectForKey:cell] unsignedIntegerValue]];
         [regions addObject:newRegion];
     }
+    assert([regions count] == 9);
+    for (SCRegion * region in regions) {
+        assert([region.squares count] == 1);
+    }
+    [self checkRegions:regions];
     BOOL merged;
     do {
         merged = NO;

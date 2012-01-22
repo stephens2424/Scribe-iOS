@@ -134,10 +134,25 @@
     return NO;
 }
 
+- (BOOL)isPotentialMember:(XY *)xy forPlayer:(SCPlayer)player {
+    if (player == _player) {
+        if ([squares count] > 0) {
+            for (XY * memberSquare in squares) {
+                if ([xy isAdjacent:memberSquare]) {
+                    return YES;
+                }
+            }
+        } else {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 - (BOOL)regionsShouldMerge:(SCRegion *)otherRegion {
     if ([self player] == [otherRegion player]) {
         for (id otherSquare in otherRegion.squares) {
-            if ([self addPotentialMember:otherSquare forPlayer:[otherRegion player]]) {
+            if ([self isPotentialMember:otherSquare forPlayer:[otherRegion player]]) {
                 return YES;
             }
         }
