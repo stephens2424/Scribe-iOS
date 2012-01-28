@@ -13,7 +13,7 @@
 #import "SCScribeBoard.h"
 
 static SCGlyphs * sharedSingleton;
-static NSArray * glyphs;
+static NSMutableArray * glyphs;
 
 @implementation SCGlyphs
 
@@ -26,6 +26,11 @@ static NSArray * glyphs;
     {
         initialized = YES;
         sharedSingleton = [[SCGlyphs alloc] init];
+    }
+}
+
+- (id)init {
+    if (!sharedSingleton) {
         NSURL * jsonURL = [[NSBundle mainBundle] URLForResource:@"Glyphs" withExtension:@"json"];
         NSString * json = [[NSString alloc] initWithContentsOfURL:jsonURL encoding:NSUTF8StringEncoding error:nil];
         NSArray * intermediateGlyphs = [json mutableObjectFromJSONString];
@@ -36,12 +41,12 @@ static NSArray * glyphs;
                 [xys addObject:[[XY alloc] initWithString:xyString]];
             }
             [glyph setObject:[[SCRegion alloc] initWithSquares:xys forPlayer:SCInformationPlayer] forKey:@"region"];
+            [glyphs addObject:glyph];
             [xys release];
         }
+        _allGlyphs = glyphs;
+        sharedSingleton = self;
     }
-}
-
-- (id)init {
     return sharedSingleton;
 }
 

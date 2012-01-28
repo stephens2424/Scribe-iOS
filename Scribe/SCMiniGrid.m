@@ -185,7 +185,7 @@ const NSUInteger MINI_GRID_SIZE = 3;
     if (blueGlyphs > redGlyphs) {
         return SCBluePlayer;
     }
-    else if (redGlyphs < blueGlyphs) {
+    else if (blueGlyphs < redGlyphs) {
         return SCRedPlayer;
     }
     else return SCNoPlayer;

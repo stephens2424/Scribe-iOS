@@ -57,6 +57,13 @@ static NSMutableDictionary * allTheXYx;
     return [[XY alloc] initWithX:_x Y:_y];
 }
 
+- (NSUInteger)hash {
+    NSUInteger prime = 11;
+    NSUInteger pX = _x + prime;
+    NSUInteger pY = _y + prime;
+    return prime * pX * pY;
+}
+
 - (BOOL)isEqual:(XY *)object {
     if ([object x] == _x && [object y] == _y)
         return YES;

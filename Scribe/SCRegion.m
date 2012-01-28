@@ -58,10 +58,11 @@
             minX = MIN(minX, xy.x);
             minY = MIN(minY, xy.y);
         }
-        normalized = [[SCRegion alloc] initForPlayer:self.player];
+        NSMutableSet * normalizedSquares = [[NSMutableSet alloc] initWithCapacity:9];
         for (XY * xy in self.squares) {
-            [squares addObject:[[XY alloc] initWithX:xy.x - minX Y:xy.y - minY]];
+            [normalizedSquares addObject:[[XY alloc] initWithX:xy.x - minX Y:xy.y - minY]];
         }
+        normalized = [[SCRegion alloc] initWithSquares:normalizedSquares forPlayer:self.player];
     }
     return normalized;
 }
@@ -95,6 +96,14 @@
         if ([rr isEqual:otherRegion.normalizedRegion]) return YES;
     }
     return NO;
+}
+
+- (NSUInteger)hash {
+    NSUInteger prime = 29;
+    for (XY * xy in self.squares) {
+        prime *= [xy hash];
+    }
+    return prime;
 }
 
 - (BOOL)isEqual:(id)object {
