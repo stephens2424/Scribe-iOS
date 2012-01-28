@@ -90,8 +90,8 @@
     if ([r isEqual:otherRegion.normalizedRegion]) return YES;
     if ([rr isEqual:otherRegion.normalizedRegion]) return YES;
     for (int i = 3; i > 0; i--) {
-        r = [r rotated90Degrees];
-        rr = [rr rotated90Degrees];
+        r = [[r rotated90Degrees] normalizedRegion];
+        rr = [[rr rotated90Degrees] normalizedRegion];
         if ([r isEqual:otherRegion.normalizedRegion]) return YES;
         if ([rr isEqual:otherRegion.normalizedRegion]) return YES;
     }
