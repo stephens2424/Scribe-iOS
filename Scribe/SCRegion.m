@@ -70,7 +70,7 @@
 - (id)reflectedRegion {
     NSMutableSet * reflectedSquares = [[NSMutableSet alloc] initWithCapacity:9];
     for (XY * xy in self.squares) {
-        [reflectedSquares addObject:[[XY alloc] initWithX:MINI_GRID_SIZE - xy.x Y:xy.y]];
+        [reflectedSquares addObject:[[XY alloc] initWithX:MINI_GRID_SIZE - xy.x - 1 Y:xy.y]];
     }
     return [[SCRegion alloc] initWithSquares:reflectedSquares forPlayer:_player];
 }
