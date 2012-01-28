@@ -21,9 +21,9 @@
     
     testGrids = [NSArray arrayWithObjects:
     // I guess you would call this a "squat U"?
-    [NSArray arrayWithObjects:@"++O O+O ++O", [NSNumber numberWithUnsignedInteger:3], [NSNumber numberWithUnsignedInteger:SCBluePlayer], nil],
+    [NSArray arrayWithObjects:@"++O O+O ++O", [NSNumber numberWithUnsignedInteger:3], [NSNumber numberWithUnsignedInteger:SCRedPlayer], nil],
     
-    [NSArray arrayWithObjects:@"OOO +OO O++", [NSNumber numberWithUnsignedInteger:4], [NSNumber numberWithUnsignedInteger:SCRedPlayer], nil],
+    [NSArray arrayWithObjects:@"OOO +OO O++", [NSNumber numberWithUnsignedInteger:4], [NSNumber numberWithUnsignedInteger:SCBluePlayer], nil],
     
     // Bomber
     [NSArray arrayWithObjects:@"+++ O++ OO+", [NSNumber numberWithUnsignedInteger:2], [NSNumber numberWithUnsignedInteger:SCBluePlayer], nil],
